@@ -1,0 +1,16 @@
+.SectionContainer{
+    border: 2px solid black;
+    width: 90%;
+    height: 400px;
+    margin: auto;
+    margin-top: 50px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.SectionTitle{
+    font-size: 70px;
+    font-family: 'Inter', sans-serif;
+    color: rgb(122, 106, 106);
+}

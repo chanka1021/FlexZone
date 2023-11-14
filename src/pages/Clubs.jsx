@@ -1,8 +1,11 @@
 import React from 'react'
+import SectionTitle from '../components/SectionTitle'
 
 function Clubs() {
   return (
-    <div>C</div>
+    <>
+      <SectionTitle title="Clubs"/>
+    </>
   )
 }
 

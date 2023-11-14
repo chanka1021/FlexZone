@@ -1,8 +1,12 @@
 import React from 'react'
-
+import SectionTitle from '../components/SectionTitle'
+import img from '../assets/sec2.jpg'
 function About() {
   return (
-    <div>About</div>
+    <>
+      <SectionTitle title="Abouts" img={img} />
+
+    </>
   )
 }
 

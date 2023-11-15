@@ -4,7 +4,7 @@ import img from '../assets/sec2.jpg'
 function About() {
   return (
     <>
-      <SectionTitle title="Abouts" img={img} />
+      <SectionTitle title="A propos" img={img} />
 
     </>
   )

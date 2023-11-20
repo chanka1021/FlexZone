@@ -1,0 +1,24 @@
+.titleContainer{
+    font-family: 'Inter', sans-serif;
+}
+
+.p1{
+color: #524FF5;
+text-align: center;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: 110%; /* 22px */
+letter-spacing: 8px;
+text-transform: uppercase;
+}
+.p2{
+    color: #1C2129;
+text-align: center;
+font-family: Inter;
+font-size: 45px;
+font-style: normal;
+font-weight: 700;
+line-height: 110%; /* 49.5px */
+}

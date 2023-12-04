@@ -1,0 +1,12 @@
+.AboutContainer{
+border: 1px solid black;
+width: 77%;
+margin: auto;
+margin-top: 100px;
+}
+.AboutL{
+    width: 50%;
+}
+.AboutR{
+    width: 50%;
+}

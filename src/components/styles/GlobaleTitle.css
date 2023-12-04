@@ -4,7 +4,6 @@
     align-content: start;
     display: flex;
     flex-direction: column;
-    line-height: 0; 
 }
 
 .p1{

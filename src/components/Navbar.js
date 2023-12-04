@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { MdOutlineMenu } from "react-icons/md";
 import { CgGym } from "react-icons/cg";
 import { FaRegUserCircle } from "react-icons/fa";
-
+import ico from "../assets/Icon.png"
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,9 +14,7 @@ export const Navbar = () => {
   return (
     <nav>
       <Link to="/" className="title">
-        <div className="roundedDiv">
-          <CgGym />
-        </div>
+          <img src={ico} />
         Flexzone
       </Link>
       <div className="MenuMobile" onClick={() => setMenuOpen(!menuOpen)}>

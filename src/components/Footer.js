@@ -1,18 +1,20 @@
 import React from "react";
 import "./styles/Footer.css";
-import { CgGym } from "react-icons/cg";
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { BsArrowUpCircle } from "react-icons/bs";
 
+import ico from "../assets/Icon.png"
 function Footer() {
   return (
     <div className="Footer">
       <div className="FooterL">
-        <div id="logo">
-          <div className="roundedDiv">
-            <CgGym />
-          </div>
-          Flexzone
+        <div className="logo">
+          <img src={ico} />
+          
+            Flexzone
+       
         </div>
-        <p>Faites briller votre salle de sport sur la carte </p>
+        <p>Transformez-vous, à votre rythme, avec nous</p>
         <div className="contactInfos">
           <p className="subTitle">Call :</p>
           <p>0655998877</p>
@@ -22,9 +24,18 @@ function Footer() {
       </div>
       <div className="FooterR">
         <p>Newsletter</p>
-        <input placeholder="Entrer votre email " className="SubscribeInput"/>
+        <input placeholder="Entrer votre email " className="SubscribeInput" />
         <div className="emailSub"></div>
-        <div className=""> Subscribe</div>
+        <div className="SubBtn"> Subscribe</div>
+        <div className="socialMedia">
+          <FaFacebook />
+          <FaInstagram />
+          <FaTwitter />
+        </div>
+        <div className="Devider">
+          <hr />
+
+        </div>
       </div>
     </div>
   );

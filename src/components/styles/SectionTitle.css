@@ -50,7 +50,7 @@
     background-color: #A1F65E;
     padding: 15px 30px;
     cursor: pointer;
-
+    width: fit-content;
 }
 .MainBtn:hover{
     color: white;
@@ -69,4 +69,24 @@
     border:1px solid #A1F65E;
     color: #A1F65E;
 
+}
+@media (max-width: 480px) {
+    .SectionTitle{
+        font-size: 30px; 
+    }
+    .HomeSectionTitle{
+        background-position:    0; /* Center the image */
+        background-size: cover; 
+    }
+    .SectionContainer{
+        background-position:    0; /* Center the image */
+    }
+    .btns{
+        display: flex;
+        margin-top: -0px;
+        font-family: 'Lato', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+    }
+    
 }

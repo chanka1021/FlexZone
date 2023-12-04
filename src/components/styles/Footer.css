@@ -1,38 +1,122 @@
-.Footer{
+.Footer {
     width: 95%;
-    height: 350px;
-    border: 1px solid black ;
+    height: fit-content;
+    border: 1px solid black;
     margin: auto;
-    background-color: #1C2129;  
+    background-color: #1C2129;
     color: white;
     display: flex;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
-#logo{
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-size: 1.5rem;
     font-weight: bold;
-    font-size: 25px;
+    font-family: 'Inter', sans-serif;
+    align-content: center;
 }
-.contactInfos{
+
+.logo img {
+    height: 40px;
+    width: 40px;
+    margin-right: 7px;
+}
+
+.contactInfos {
     border: 1px solid grey;
     padding: 0px 0px 10px 50px;
     background-color: #212730;
     margin-top: 40px;
+    width: 60%;
 }
-.FooterL{
+
+.FooterL {
     width: 50%;
     padding: 25px 0px 20px 50px;
 }
-.FooterR{
+
+.FooterR {
     width: 50%;
+    justify-content: center;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
 }
-.FooterR p{
-font-size: 33px;
-font-weight: 600;
+
+.FooterR p {
+    font-size: 33px;
+    font-weight: 600;
 }
-.subTitle{
+
+.subTitle {
     color: #A1F65E;
 }
-.SubscribeInput{
+
+.SubscribeInput {
     padding: 10px 80px 10px 30px;
     background-color: #212730;
     color: grey;
+    outline: none;
+}
+
+.SubscribeInput {
+    border: 1px solid #22272e;
+    width: fit-content;
+}
+
+.socialMedia {
+    display: flex;
+    justify-content: space-between;
+    width: 70px;
+}
+
+.socialMedia :hover {
+    color: #A1F65E;
+    cursor: pointer;
+}
+
+.SubBtn {
+    background-color: #A1F65E;
+    color: #1C2129;
+    padding: 10px 20px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.SubBtn:hover {
+    color: white;
+    transition: all ease-in-out 0.2s;
+}
+
+.Devider hr {
+    width: 70%;
+    color: #485059;
+}
+
+@media (max-width: 480px) {
+    .Footer {
+        font-size: 17px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .FooterL {
+        width: 100%;
+        padding: 25px 0px 20px 50px;
+    }
+
+    .FooterR {
+        width: 100%;
+        padding: 25px 0px 20px 50px;
+        height: 300px;
+    }
+
+
 }

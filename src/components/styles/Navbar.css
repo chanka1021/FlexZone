@@ -23,6 +23,11 @@ nav .title {
     color: #1d2229;
     font-family: 'Inter', sans-serif;
     font-weight: bolder;
+    align-items: center;
+    display: flex;
+}
+nav  img{
+    margin-right: 5px;
 }
 
 nav ul {

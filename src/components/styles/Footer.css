@@ -1,0 +1,38 @@
+.Footer{
+    width: 95%;
+    height: 350px;
+    border: 1px solid black ;
+    margin: auto;
+    background-color: #1C2129;  
+    color: white;
+    display: flex;
+}
+#logo{
+    font-weight: bold;
+    font-size: 25px;
+}
+.contactInfos{
+    border: 1px solid grey;
+    padding: 0px 0px 10px 50px;
+    background-color: #212730;
+    margin-top: 40px;
+}
+.FooterL{
+    width: 50%;
+    padding: 25px 0px 20px 50px;
+}
+.FooterR{
+    width: 50%;
+}
+.FooterR p{
+font-size: 33px;
+font-weight: 600;
+}
+.subTitle{
+    color: #A1F65E;
+}
+.SubscribeInput{
+    padding: 10px 80px 10px 30px;
+    background-color: #212730;
+    color: grey;
+}

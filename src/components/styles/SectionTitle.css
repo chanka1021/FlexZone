@@ -55,8 +55,8 @@
 .MainBtn:hover{
     color: white;
     transition: all ease-in-out 0.2s;
-
 }
+
 .SecBtn{
     color: white;
     border: 2px solid white;

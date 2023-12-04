@@ -5,12 +5,13 @@ import About from "./pages/About";
 import Clubs from "./pages/Clubs";
 import Store from "./pages/Store";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
 
 function App() {
   return (
     <>
-    <Navbar/>
+     <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/clubs" element={<Clubs/>} />
@@ -18,6 +19,7 @@ function App() {
       <Route path="/contact" element={<Contact/>} />
       <Route path="/about" element={<About/>} />
     </Routes>
+    <Footer/>
     </>
   );
 }

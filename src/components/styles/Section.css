@@ -3,15 +3,10 @@
 width: 1399px;
 flex-direction: column;
 align-items: flex-start;
-border: 2px solid black;
+}
 
-}
-.SecondBtn{
-     height: '100%';paddingTop: 19; paddingBottom: 20; paddingLeft: 51; paddingRight: 51; background: #1D2229; justifyContent: center; alignItems: center; gap: 10; display: 'inline-flex';
-}
 .row{
     display: flex;
-    border: #1D2229 1px solid;
     justify-content: space-between  ;
     width: 100%;
 }

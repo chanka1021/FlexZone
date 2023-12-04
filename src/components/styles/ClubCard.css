@@ -1,0 +1,21 @@
+.ClubCardContainer{
+    height: 460px;
+    width: 330px;
+font-family: 'Inter', sans-serif;
+
+}
+
+.ClubCardContainer img {
+    height: 70%;
+    width: 100%;
+}
+
+.ClubTitle{
+    color: #1C2129;
+    font-weight: 900;
+}
+.suite{
+    color : #524FF5;
+    cursor: pointer;
+    font-weight: bold;
+}

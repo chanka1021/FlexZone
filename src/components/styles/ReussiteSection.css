@@ -1,0 +1,17 @@
+.RsContainer{
+    width: 70%;
+    height: 800px;
+    margin: auto;
+    border: 1px solid #000;
+}
+
+.RsCardsContainer{
+    border: 1px red solid;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+}
+.ReussiCardContainer{
+    border: 1px solid green;
+    width: 32%;
+}

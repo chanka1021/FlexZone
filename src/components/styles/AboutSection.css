@@ -7,7 +7,7 @@
 }
 
 .AboutL {
-    width: 50%;
+    width: 60%;
 }
 
 
@@ -66,6 +66,7 @@
     display: flex;
     align-items: end;
     margin-top: 100px;
+    margin-left: 40px;
 }
 
 .AboutContactBtn {
@@ -80,16 +81,75 @@
     margin-bottom: 20px;
     margin-left: 30px;
 }
-@media (max-width: 480px) {
-.AboutContainer {
-    flex-direction: column;
-    width: 90%;
-}
-.AboutL {
-    width: 100%;
-}
-.AboutR {
-    width: 100%;
+
+
+.GrContainer {
+    height: 70px;
+    width: 70%;
+    margin: auto;
+    border-top: #D2D2D2 1px solid;
+    border-bottom: #D2D2D2 1px solid;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding:  20px 0 ;
 }
 
+.GrBox {
+    display: flex;
+    align-items: center;
+    background-color: #F3F3F3;
+    padding: 10px 5px;
+    font-weight: bold;
+}
+.GrBox p{
+    font-family: 'Lato', sans-serif;
+    color: #1C2128;
+    font-weight: bold;
+    padding:0px 20px;
+}
+.GrBox div {
+    background-color: #1C2128;
+    color: white;
+    width: fit-content;
+    padding: 9px 12px;
+}
+
+
+@media (max-width: 480px) {
+    .AboutContainer {
+        flex-direction: column;
+        width: 90%;
+    }
+    .AboutContent {
+        flex-direction: column;
+    }
+    .Content1 {
+        padding: 0px;
+    }
+    .AboutL {
+        width: 100%;
+    }
+
+    .AboutR {
+        width: 100%;
+    }
+    .AboutDesc {
+        font-size: 15px;
+    }
+    .AboutBgContainer {
+        height: 300px;
+        width: 200px;
+        padding: 0;
+        margin: auto;
+        margin-top: 10px;
+    }
+    .AboutContactBtn{
+        padding: 10px 10px;
+    }
+.GrContainer{
+    flex-direction: column;
+    height: fit-content;
+    gap: 5px;
+}
 }

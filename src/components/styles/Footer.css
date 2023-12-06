@@ -1,6 +1,6 @@
 .Footer {
     width: 95%;
-    height: fit-content;
+    height: 350px;
     border: 1px solid black;
     margin: auto;
     background-color: #1C2129;
@@ -43,11 +43,10 @@
 .FooterR {
     width: 50%;
     justify-content: center;
-    height: 70%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid black;
 }
 
 .FooterR p {
@@ -105,6 +104,8 @@
         font-size: 17px;
         display: flex;
         flex-direction: column;
+        width: fit-content;
+        height: fit-content;
     }
 
     .FooterL {

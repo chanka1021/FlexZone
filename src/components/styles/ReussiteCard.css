@@ -1,6 +1,45 @@
-.ReussiCardContainer img{
+.ReussiCardContainer {
+    background-color: #1B2129;
+    display: flex;
+    flex-direction: column;
+}
+
+.ReussiCardContainer img {
     width: 100%;
 }
-.reussInfos{
-    border: 1px solid black;
+
+.reussInfos {
+    background-color: #1B2129;
+    color: white;
+    padding: 15px 30px;
+}
+
+.RInfos1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #49505A;
+}
+
+.RInfos1 p {
+    font-family: 'poppins', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.Rinfos2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+.Rinfos2 a {
+    color: #858585;
+}
+
+.Social {
+    display: flex;
+    gap: 10px;
+    color: white;
+    font-size: 22px;
+    margin-top: 10px;
 }

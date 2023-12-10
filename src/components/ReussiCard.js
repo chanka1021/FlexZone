@@ -1,6 +1,8 @@
 import React from 'react'
 import img from '../assets/reussiPhoto.png'
 import  './styles/ReussiteCard.css'
+import { IoLogoInstagram } from "react-icons/io";
+import { IoLogoFacebook } from "react-icons/io5";
 
 function ReussiCard() {
   return (
@@ -9,12 +11,16 @@ function ReussiCard() {
       <div className='reussInfos'>
         <div className='RInfos1'>
           <p>Madison Froning</p>
-          <p>⭐/5</p>
+          <a>⭐/5</a>
         </div>
-        <div className='Rinfos 2'>
+        <div className='Rinfos2'>
         <p>Specialisations :</p> 
-        <p> Crossfit Expoort, Nutrition & Rehab</p>
-        <div className='Social'></div>
+        <a> Crossfit Expoort, Nutrition & Rehab</a>
+        <div className='Social'>
+        <IoLogoInstagram />
+        <IoLogoFacebook />
+
+        </div>
         </div>
 
       </div>

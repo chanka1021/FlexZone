@@ -5,6 +5,7 @@ import PartnersSection from '../components/PartnersSection'
 import AboutSection from '../components/AboutSection'
 import GoogleReviews from '../components/GoogleReviews'
 import ReussiteSection from '../components/ReussiteSection'
+import Plans from '../components/Plans'
 
 function Home() {
   return (
@@ -14,6 +15,7 @@ function Home() {
      <AboutSection/>
      <GoogleReviews/>
      <ReussiteSection/>
+     <Plans/>
     </>
   )
 }

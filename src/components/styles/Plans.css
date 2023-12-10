@@ -1,0 +1,37 @@
+.plansSectionContainer{
+    flex-direction: column;
+    display: flex;
+    width: 80%;
+    margin: auto;
+    border: 1px solid #000;
+    text-align: center;
+}
+
+.PlansTitle{
+    border: 1px solid red;
+    margin: auto;
+}
+.T1{
+    color: #1C2129;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+}
+.T2{
+    color: #524FF5;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+letter-spacing: 8px;
+text-transform: uppercase;
+}
+
+.plansContainer{
+border: 1px solid green;
+display: flex;
+}
+.plan{
+    
+}

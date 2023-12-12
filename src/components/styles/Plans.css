@@ -1,37 +1,136 @@
-.plansSectionContainer{
+.plansSectionContainer {
     flex-direction: column;
     display: flex;
     width: 80%;
     margin: auto;
-    border: 1px solid #000;
     text-align: center;
+    font-family: 'Inter', sans-serif;
+    margin-top: 100px;
+
 }
 
-.PlansTitle{
-    border: 1px solid red;
+.PlansTitle {
     margin: auto;
 }
-.T1{
+
+.T1 {
     color: #1C2129;
     font-family: Inter;
     font-size: 25px;
     font-style: normal;
     font-weight: 700;
 }
-.T2{
+
+.T2 {
     color: #524FF5;
-font-family: Inter;
-font-size: 20px;
-font-style: normal;
-font-weight: 600;
-letter-spacing: 8px;
-text-transform: uppercase;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 8px;
+    text-transform: uppercase;
 }
 
-.plansContainer{
-border: 1px solid green;
-display: flex;
+.plansContainer {
+    display: flex;
+    justify-content: space-between;
 }
-.plan{
-    
+
+.plan {
+    width: 30%;
+    background-color: #F9F9F9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.PlanTitle {
+    color: #1B2129;
+    font-weight: bold;
+    font-size: 38px;
+    text-align: left;
+    padding: 30px 40px;
+
+}
+
+.Heart{
+    color: #ff5b5b;
+    padding-right: 10px;
+}
+.star{
+    color: #3835e6;
+    padding-right: 10px; 
+}
+.diamond{
+    color: #ffaa64;
+    padding-right: 10px;  
+}
+
+.PlanPrice {
+    border-top: 1px solid #D3D3D3;
+    border-bottom: 1px solid #D3D3D3;
+    font-size: 30px;
+    font-weight: 500;
+    color: #1B2129;
+    border-width: 70%;
+    padding: 20px 0px;
+    align-items: center;
+    width: 70%;
+}
+
+.PlanPrice p {
+    font-size: 20px;
+}
+.PlanPrice div {
+   width: fit-content;
+   font-size: 17px;
+   color: white;
+   padding: 5px 30px;
+   margin: auto;
+   background-color:#3835e6 ;
+}
+
+.PlanDesc {
+    font-family: 'Lato', sans-serif;
+    color: #6A6A6A;
+    font-size: 20px;
+    padding: 20px 50px;
+    line-height: 55px;
+}
+
+.PlanDesc a {
+    color: #524FF5;
+}
+
+.PlanBtn{
+    background-color: #1B2129;
+    color: whitesmoke;
+    width: fit-content;
+    margin: auto;
+    padding: 7px 40px;
+    border-radius: 2px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: all ease-in-out 50ms;
+}
+.PlanBtn:hover{
+    background-color: #12233a;
+    color: white;
+
+}
+
+@media (max-width: 480px) { 
+    .plansSectionContainer{
+        width: 100%;
+
+    }
+    .plansContainer {
+        flex-direction: column;
+        gap: 30px;
+
+    }
+    .plan{
+        width: 100%;
+    }
 }

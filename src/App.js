@@ -6,6 +6,8 @@ import Clubs from "./pages/Clubs";
 import Store from "./pages/Store";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/Signup";
 
 
 function App() {
@@ -18,6 +20,10 @@ function App() {
       <Route path="/Store" element={<Store/>} />
       <Route path="/contact" element={<Contact/>} />
       <Route path="/about" element={<About/>} />
+      <Route path="/signin" element={<SignIn/>} />
+      <Route path="/signup" element={<SignUp/>} />
+
+
     </Routes>
     <Footer/>
     </>

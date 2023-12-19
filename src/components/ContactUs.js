@@ -12,7 +12,7 @@ function ContactUs() {
                     <p className='bv'>BIENVENUE SUR Flexzone</p>
                     <p className='getin'>Prenez contact avec nous</p>
                     <p className='text-horaires'>If you have any feedback or questions about our clubs, our website or our services in general, please contact us by filling out the form. </p>
-                    <div className='oh'>Open Hours</div>
+                    <div className='oh'>heures d'ouverture</div>
                     <div className='horaires'>
                         <p className='text-horaires'><a>Lun - Ven :</a> 08.00 AM to 09.00 PM</p>
                         <p className='text-horaires'><a>Sat :</a> 09.00 AM to 06.00 PM</p>
@@ -50,6 +50,7 @@ function ContactUs() {
                     </div>
                     <div class="verticalLine"></div>
 
+                    <div class="verticalLine"></div>
                     <div className='info1'>
                         <a><MdLocationOn /></a>
                         <p>Localisation</p>

@@ -6,6 +6,7 @@ import Clubs from "./pages/Clubs";
 import Store from "./pages/Store";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import NearestGyms from "./pages/NearestGyms";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path="/Store" element={<Store/>} />
       <Route path="/contact" element={<Contact/>} />
       <Route path="/about" element={<About/>} />
+      <Route path="/nearest" element={<NearestGyms/>} />
     </Routes>
     <Footer/>
     </>

@@ -7,7 +7,7 @@ import img from "../assets/sponsored.png"
 import axios from 'axios'
 import { useEffect,useState } from 'react';
 function ClubsContainer() {
-     const [gyms,setGyms] = useState(null);
+     const [gyms,setGyms] = useState([]);
     useEffect(()=>{
         const FetchData = () => {
             axios.get('http://127.0.0.1:8000/api/gym').then((response) => {
@@ -15,9 +15,9 @@ function ClubsContainer() {
                 console.log(response.data)
             });
           };
-          return () => {
+     
             FetchData();
-          };
+          
        
     },[])
     const cardData = [
@@ -33,7 +33,7 @@ function ClubsContainer() {
         <>
             <GlobaleTitle t1="Nos" t2="Partenaires"  center={true} />
             <div className="card-container">
-                {gyms && gyms.map((gym) => (
+                {gyms?.map((gym) => (
                     <ClubCard key={gym.id} img={gym.images[0]} title={gym.name} desc={gym.email} />
                 ))}
             </div>

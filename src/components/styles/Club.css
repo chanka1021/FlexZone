@@ -1,0 +1,167 @@
+.ClubMainContainer {
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.infos {
+    display: flex;
+    height: 500px;
+}
+
+.ClubGallery {
+    width: 500px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.photos {
+    margin: auto;
+}
+
+.slider-image {
+    max-height: 400px !important;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.button-container div{
+    padding: 5px;
+    color: #524ff7;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.Clubinfos {
+    height: 400px;
+    width: 600px;
+}
+
+.radios {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+}
+
+.Clubinfos label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #524ff7;
+    border-radius: 10px;
+    color: #524ff7;
+    transition: 0.2s;
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.Clubinfos label i {
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.Clubinfos label>span {
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+input[type="radio"]:checked+label {
+    background-color: #524ff7;
+    color: #ffffff;
+    box-shadow: 0 15px 45px rgba(24, 58, 249, 0.2);
+}
+
+.InfosCardContainer {
+}
+
+.Btn {
+    color: #1B2129;
+    background-color: #A1F65E;
+    width: fit-content;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 18px;
+    padding: 10px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.Btn:hover {
+    box-shadow: 0 25px 45px rgba(30, 196, 85, 0.2);
+    color: #000;
+    background-color: #62ac29;
+}
+
+.perks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    font-weight: 600;
+    color: #1C2129;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 50px;
+    padding: 0 100px;
+}
+
+.perkcard {
+    height: 130px;
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0px 0px 6px #00000058;
+    border-radius: 20px;
+    margin: 0.25rem;
+
+}
+
+.perks a {
+    color: #A1F65E;
+    font-size: 23px;
+    margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+
+    .infos{
+        flex-direction: column;
+        height: fit-content;
+        align-items: center;
+    }
+    .ClubGallery { 
+        width: 100%;
+        height: 320px;
+    }
+    .perks{
+        padding: 0;
+    }
+    .Clubinfos{
+        width: fit-content;
+    }
+
+}

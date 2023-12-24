@@ -1,0 +1,47 @@
+.ClubInfosCard {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+}
+
+.ClubInfosCard h4 {
+    color: #1C2129;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+}
+
+.ClubInfosCard h4 a {
+    color: #524ff7;
+}
+
+.ClubInfosCard p {
+    color: #6A6A6A;
+    font-size: 13px;
+}
+
+.Surface-horaires-adress {
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+}
+
+.Surface-horaires-adress div {
+    font-size: 15px;
+
+    margin: auto;
+    background-color: #D3D3D3;
+    display: flex;
+    color: #1C2129;
+    width: 50%;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 80px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.Surface-horaires-adress div a {
+    color: #524ff7;
+    font-weight: normal;
+    margin-left: 25px;
+}

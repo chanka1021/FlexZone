@@ -1,135 +1,167 @@
 .Contactus {
-    width: 100vw;
-    margin: auto;
+  width: 100vw;
+  margin: auto;
 }
 
 .bv {
-    color: #524FF5;
-    font-size: 20;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
+  color: #524ff5;
+  font-size: 20;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .Getintouch {
-    margin: auto;
+  margin: auto;
 }
 
 .getin {
-    color: #1C2129;
-    font-size: 40px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 700;
+  color: #1c2129;
+  font-size: 40px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
 }
 
 .text-horaires {
-    color: #6A6A6A;
-    font-size: 20px;
-    font-family: 'Lato', sans-serif;
-    text-transform: capitalize;
-    font-weight: 500;
+  color: #6a6a6a;
+  font-size: 20px;
+  font-family: "Lato", sans-serif;
+  text-transform: capitalize;
+  font-weight: 500;
 }
 
 .text-horaires a {
-    color: #1C2129;
-    font-weight: bold;
+  color: #1c2129;
+  font-weight: bold;
 }
 
 .oh {
-    color: #1B2129;
-    font-size: 30px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
+  color: #1b2129;
+  font-size: 30px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
 }
 
 .horaires {
-    width: fit-content;
-    padding-top: 25px;
-    border-top: 1px solid #D3D3D3;
+  width: fit-content;
+  padding-top: 25px;
+  border-top: 1px solid #d3d3d3;
 }
 
 .ContactForm {
-    display: flex;
-    width: 70%;
-    margin: auto;
+  display: flex;
+  width: 70%;
+  margin: auto;
 }
 
 .Form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    background-color: #F9F9F9;
-    padding: 50px;
-    width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #f9f9f9;
+  padding: 50px;
+  width: 60%;
 }
 
 .Form input {
-    padding: 10px;
-    font-size: 20px;
+  padding: 10px;
+  font-size: 20px;
 }
 
 .sendbtn {
-    background-color: #1C2129;
-    color: white;
-    width: fit-content;
-    padding: 20px 30px;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: #1c2129;
+  color: white;
+  width: fit-content;
+  padding: 20px 30px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .sendbtn:hover {
-    background-color: #07090c;
+  background-color: #07090c;
 }
 
 .ContactInfos {
-    margin: auto;
-    border: 1px solid black;
-    width: 90%;
-    padding: 60px 50px;
-    margin-top: 50px;
-    background-position: center;
-    /* Center the image */
-    background-repeat: no-repeat;
-    /* Do not repeat the image */
-    background-size: cover;
-
+  margin: auto;
+  border: 1px solid black;
+  width: 90%;
+  padding: 60px 50px;
+  margin-top: 50px;
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: cover;
 }
 
 .InfosContainer {
-    display: flex;
-    justify-content: space-between;
-    background-color: #A1F65E;
-    width: 70%;
-    margin: auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: #a1f65e;
+  width: 70%;
+  margin: auto;
+  align-items: center;
 }
 
 .info1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #1B2129;
-    font-size: 18px;
-    gap: 15px;
-    padding: 50px 100px;
-    width: 33%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #1b2129;
+  font-size: 18px;
+  gap: 15px;
+  padding: 50px 100px;
+  width: 33%;
 }
 
 .info1 a {
-    color: #1B2129;
-    font-size: 33px;
+  color: #1b2129;
+  font-size: 33px;
 }
 
 .info1 p {
-    font-size: 20px;
-    font-weight: bold;
-    color: #1B2129;
+  font-size: 20px;
+  font-weight: bold;
+  color: #1b2129;
 }
 
 .Devider {
-    width: 50%;
-    height: 2px;
-    background-color: #1B2129;
+  width: 50%;
+  height: 2px;
+  background-color: #1b2129;
 }
 .verticalLine {
-    border-left: 1px solid #1B2129;
-      }
+  border-left: 1px solid #1b2129;
+}
+
+@media (max-width: 480px) {
+  .ContactForm {
+    width: 100%;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+  }
+  .Form {
+    width: 100%;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .horaires {
+    margin-top: 20px;
+  }
+  .ContactInfos {
+    height: fit-content;
+    padding: 0;
+  }
+  .InfosContainer {
+    height: fit-content;
+    flex-direction: column;
+  }
+  .info1 {
+    width: 90%;
+    padding: 0;
+  }
+  .verticalLine {
+    display: none;
+  }
+}

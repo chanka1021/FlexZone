@@ -10,7 +10,9 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/Signup";
 import Club from "./pages/Club";
 import NearestGyms from "./pages/NearestGyms";
+import axios from "axios";
 
+axios.defaults.baseURL="http://localhost:8000/api";
 
 
 function App() {

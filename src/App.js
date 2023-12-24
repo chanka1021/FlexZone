@@ -9,6 +9,8 @@ import Footer from "./components/Footer";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/Signup";
 import Club from "./pages/Club";
+import NearestGyms from "./pages/NearestGyms";
+
 
 
 function App() {
@@ -24,8 +26,7 @@ function App() {
       <Route path="/signin" element={<SignIn/>} />
       <Route path="/signup" element={<SignUp/>} />
       <Route path="/club" element={<Club/>} />
-
-
+      <Route path="/nearest" element={<NearestGyms/>} />
 
     </Routes>
     <Footer/>

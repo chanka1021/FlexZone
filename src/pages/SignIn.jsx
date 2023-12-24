@@ -47,7 +47,7 @@ function SignIn() {
                 <br />
                 <button type="submit">Sign In</button>
             </form>
-           <p>Vous n'avez pas de compte ? <a className='SignupLabel'> S'inscrire maintenant</a></p> 
+           <p>Vous n'avez pas de compte ? <Link className='SignupLabel' to={'/signup'}>S'inscrire maintenant</Link></p> 
         </div>
     );
 }

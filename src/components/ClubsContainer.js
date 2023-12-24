@@ -10,7 +10,7 @@ function ClubsContainer() {
      const [gyms,setGyms] = useState([]);
     useEffect(()=>{
         const FetchData = () => {
-            axios.get('http://127.0.0.1:8000/api/gym').then((response) => {
+            axios.get('/gym').then((response) => {
                 setGyms(response.data.data)
                 console.log(response.data)
             });

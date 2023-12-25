@@ -43,18 +43,38 @@ function Club() {
     }
   }, [id]);
 
-  const perks = [
-    { name: "football", icon: PiSoccerBall },
-    { name: " espace cardio", icon: PiPersonSimpleRun },
-    { name: "espace femmes", icon: GrUserFemale },
-    { name: "espace musculation", icon: CgGym },
-    { name: "basketball", icon: PiBasketball },
-    { name: "mma", icon: GiBoxingGlove },
-    { name: "piscine", icon: MdOutlinePool },
-    { name: "salle de cours", icon: SiGoogleclassroom },
-    { name: "salle spining", icon: VscDebugRerun },
-    { name: "wifi", icon: FaWifi },
-    { name: "restaurant", icon: IoMdRestaurant },
+  const PERKS = [
+    { name: "football", sqlNotation: "football", icon: <PiSoccerBall /> },
+    {
+      name: " espace cardio",
+      sqlNotation: "espace_cardio",
+      icon: <PiPersonSimpleRun />,
+    },
+    {
+      name: "espace femmes",
+      sqlNotation: "espace_femmes",
+      icon: <GrUserFemale />,
+    },
+    {
+      name: "espace musculation",
+      sqlNotation: "espace_musculation",
+      icon: <CgGym />,
+    },
+    { name: "basketball", sqlNotation: "basketball", icon: <PiBasketball /> },
+    { name: "mma", sqlNotation: "mma", icon: <GiBoxingGlove /> },
+    { name: "piscine", sqlNotation: "piscine", icon: <MdOutlinePool /> },
+    {
+      name: "salle de cours",
+      sqlNotation: "salle_de_cours",
+      icon: <SiGoogleclassroom />,
+    },
+    {
+      name: "salle spining",
+      sqlNotation: "salle_spining",
+      icon: <VscDebugRerun />,
+    },
+    { name: "wifi", sqlNotation: "wifi", icon: <FaWifi /> },
+    { name: "restaurant", sqlNotation: "restaurant", icon: <IoMdRestaurant /> },
   ];
   //  const images = [img, img2, img, img2];
 
@@ -148,14 +168,15 @@ function Club() {
           </div>
           <div className="Btn">Adhérer maintenant</div>
           <div className="perks">
-            {perks.map((perk) => (
-              <div className="perkcard">
-                <a>
-                  <perk.icon />
-                </a>
-                {perk.name}
-              </div>
-            ))}
+            {Object.entries(club.perks).map(([key, value]) => {
+              const { icon,name } = PERKS.find((perk) => perk.sqlNotation === key);
+              return (
+                <div className="perkcard" key={key}>
+                  <a>{icon}</a>
+                  {name}
+                </div>
+              );
+            })}
           </div>
           <div className="plansContainer">
             {club.subsription_planes
@@ -173,8 +194,8 @@ function Club() {
                     </div>
                     <div className="PlanDesc">
                       <a>1 Semaines essaie gratuit</a>
-                      <br/>
-                       {plan.description}
+                      <br />
+                      {plan.description}
                       <div className="PlanBtn">Commencer</div>
                     </div>
                   </div>

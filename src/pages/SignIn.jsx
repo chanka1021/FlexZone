@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import '../components/styles/Sign.css'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    const handleSignIn = (e) => {
+    const [user,setUser] = useState(null);
+    const handleSignIn = async (e) => {
         e.preventDefault();
         // Add your sign-in logic here, e.g., make an API call to authenticate the user
-        console.log('Signing in with:', email, password);
+        try {
+            const data = await  axios.post("/login",{email,password})
+            console.log(data.message) 
+        } catch (error) {
+            //console.log(error)
+        }
+      
+       // console.log('Signing in with:', email, password);
     };
 
     return (
@@ -38,7 +47,7 @@ function SignIn() {
                 <br />
                 <button type="submit">Sign In</button>
             </form>
-           <p>Vous n'avez pas de compte ? <a className='SignupLabel'> S'inscrire maintenant</a></p> 
+           <p>Vous n'avez pas de compte ? <Link className='SignupLabel' to={'/signup'}>S'inscrire maintenant</Link></p> 
         </div>
     );
 }

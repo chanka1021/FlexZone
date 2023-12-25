@@ -1,0 +1,93 @@
+.UsersGymContainer{
+    width: 80%;
+    height: 300px;
+    margin: auto;
+    color: white;
+    display: flex;
+  background-color: #203655;
+  border-radius: 25px;
+  margin-top: 25px;
+}
+
+.pc-actions{
+    width: 35%;
+    height: 100%;
+    align-items: center;
+    text-align: center;
+    border-right: #a1f65e 1px solid;
+}
+.pc-actions img{
+height: 170px;
+width: 170px;
+object-fit: cover;
+border-radius: 15px;
+margin-top: 10px;
+}
+.pc-actions div{
+    background-color: #a1f65e;
+    padding:  5px 10px;
+    color: black;
+    width: fit-content;
+    margin: auto;
+    cursor: pointer;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+
+.pc-actions a{
+    color: red;
+    font-size: 11px;
+    cursor: pointer;
+}
+.pc-actions a:hover{
+    font-weight: bold;
+}
+
+.UG-infos{
+    display: flex;
+    width: 65%;
+    flex-direction: column;
+    text-align: center;
+}
+
+.UG-title{
+    margin-top: 30px;
+    font-size: 22px;
+}
+.UG-title a {
+font-family: 'Lato', sans-serif;
+color: chartreuse;
+font-weight: bold;
+font-style: italic;
+text-transform: uppercase;
+}
+.UG-sub-infos{
+    display: flex;  
+    justify-content: space-between;
+    text-align: start;
+    margin-top: 80px;
+    padding: 0px 15px;
+}
+.UG-devider{
+    width: 45%;
+}
+
+.UG-devider div{
+    display: flex;
+    justify-content: space-between;
+    padding:8px 0;
+    font-weight: bold;
+}
+.UG-devider div a{
+ font-style: italic;
+ font-weight: normal;
+}
+
+.P-downloadapp{
+    color: grey;
+    font-size: 13px;
+}
+.P-downloadapp a {
+    cursor: pointer;
+    color: black;
+}

@@ -11,23 +11,28 @@ import { BsInfoSquare } from "react-icons/bs";
 
 import img from '../assets/reussiPhoto.png'
 import UserOverView from '../components/userdashboard components/UserOverView';
+import UsersGym from '../components/userdashboard components/UsersGym';
 
 function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedComponent, setSelectedComponent] = useState(null);
 
   const handleItemClick = (item) => {
-    setSelectedItem(item);
+    const selectedItemObj = UserNavItems.find((navItem) => navItem.id === item) || GymOwnerNavItems.find((navItem) => navItem.id === item);
+    
+    setSelectedItem(selectedItemObj.id);
+    setSelectedComponent(selectedItemObj.component || null);
   };
 
   const UserNavItems = [
-    { id: 'dashboard', icon: <MdOutlineDashboard />, text: 'Dashboard' },
-    { id: 'calendar', icon: <IoCalendarOutline />, text: 'Calendrier' },
-    { id: 'club', icon: <GiGymBag />, text: 'Club' },
+    { id: 'Aperçu', icon: <MdOutlineDashboard />, text: 'Aperçu' ,component : <UserOverView/> },
+    { id: 'calendar', icon: <IoCalendarOutline />, text: 'Calendrier'  },
+    { id: 'club', icon: <GiGymBag />, text: 'Club', component : <UsersGym/>},
     { id: 'achats', icon: <MdOutlineProductionQuantityLimits />, text: 'Achats' },
   ]
 
   const GymOwnerNavItems = [
-    { id: 'Aperçu', icon: <MdOutlineDashboard />, text: 'Aperçu' },
+    { id: 'dashboard', icon: <MdOutlineDashboard />, text: 'dashboard' },
     { id: 'Plans', icon: <MdOutlinePriceCheck />, text: 'Plans' },
     { id: 'Adherants', icon: <FaUsers />, text: 'Adherants' },
     { id: 'Products', icon: <FaCartPlus />, text: 'Products' },
@@ -55,7 +60,8 @@ function Dashboard() {
         </ul>
       </div>
       <div className='Actions'>
-        <UserOverView/>
+      {selectedComponent}
+      
       </div>
       <div className='UserData'>
         <div className='UserDetails'>

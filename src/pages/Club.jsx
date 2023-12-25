@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../components/styles/Club.css";
 import { CgGym } from "react-icons/cg";
-import { FaRegClock } from "react-icons/fa";
+import { FaHeart, FaRegClock, FaStar } from "react-icons/fa";
 import { TbHomeQuestion } from "react-icons/tb";
 import ClubAdress from "../components/ClubAdress";
 import ClubInfos from "../components/ClubInfos";
@@ -9,7 +9,7 @@ import Clubhoraires from "../components/ClubHoraires";
 import { PiSoccerBall, PiPersonSimpleRun, PiBasketball } from "react-icons/pi";
 import { GrUserFemale, GrFormNext, GrFormPrevious } from "react-icons/gr";
 import { GiBoxingGlove } from "react-icons/gi";
-import { MdOutlinePool } from "react-icons/md";
+import { MdDiamond, MdOutlinePool } from "react-icons/md";
 import { SiGoogleclassroom } from "react-icons/si";
 import { VscDebugRerun } from "react-icons/vsc";
 import { FaWifi } from "react-icons/fa";
@@ -19,7 +19,7 @@ import {
   IoCaretForwardCircleOutline,
 } from "react-icons/io5";
 import axios from "axios";
-import {useParams} from  "react-router-dom"
+import { useParams } from "react-router-dom";
 import img from "../assets/gym.jpg";
 import img2 from "../assets/sec1.jpg";
 
@@ -28,21 +28,19 @@ function Club() {
 
   const { id } = useParams();
   const [club, setClub] = useState(null);
-  
 
   useEffect(() => {
     if (!id) {
       return;
     }
-   try {
-    axios.get(`/gym/${id}`).then((response) => {
-      setClub(response.data.data);
-      console.log(response)
-      
-    });
-   } catch (error) {
-    console.log(error)
-   }
+    try {
+      axios.get(`/gym/${id}`).then((response) => {
+        setClub(response.data.data);
+        console.log(response);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }, [id]);
 
   const perks = [
@@ -58,7 +56,7 @@ function Club() {
     { name: "wifi", icon: FaWifi },
     { name: "restaurant", icon: IoMdRestaurant },
   ];
-//  const images = [img, img2, img, img2];
+  //  const images = [img, img2, img, img2];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -71,6 +69,12 @@ function Club() {
       (prevIndex) => (prevIndex - 1 + club.images.length) % club.images.length
     );
   };
+
+  const planCategorie = [
+    { icon: <FaHeart className="Heart" />, title: "Basic" },
+    { icon: <FaStar className="star" />, title: "Standard" },
+    { icon: <MdDiamond className="diamond" />, title: "Premium" },
+  ];
   return (
     <>
       {club ? (
@@ -119,12 +123,18 @@ function Club() {
               <div className="InfosCardContainer">
                 {selectedInfo === 1 && <ClubInfos club={club} />}
                 {selectedInfo === 2 && <Clubhoraires />}
-                {selectedInfo === 3 && <ClubAdress  club={club} />}
+                {selectedInfo === 3 && <ClubAdress club={club} />}
               </div>
             </div>
             <div className="photos">
               <div className="ClubGallery">
-                <img className="slider-image" src={'http://localhost:8000/images/gymImgs/'+club.images[currentImageIndex]} />
+                <img
+                  className="slider-image"
+                  src={
+                    "http://localhost:8000/images/gymImgs/" +
+                    club.images[currentImageIndex]
+                  }
+                />
               </div>
               <div className="button-container">
                 <div onClick={handlePrevious}>
@@ -147,9 +157,33 @@ function Club() {
               </div>
             ))}
           </div>
+          <div className="plansContainer">
+            {club.subsription_planes
+              ?.sort((a, b) => a.price - b.price)
+              .map((plan, index) => {
+                return (
+                  <div className="plan">
+                    <div className="PlanTitle">
+                      {planCategorie[index].icon}
+                      <> {planCategorie[index].title}</>
+                    </div>
+                    <div className="PlanPrice">
+                      {parseInt(plan.price)} MAD / month
+                      <p>{plan.reduction}% Off pour les nouveaux</p>
+                    </div>
+                    <div className="PlanDesc">
+                      <a>1 Semaines essaie gratuit</a>
+                      <br/>
+                       {plan.description}
+                      <div className="PlanBtn">Commencer</div>
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
         </div>
       ) : (
-        <h1>unfound 404</h1>
+        <h1>Loading ...</h1>
       )}
     </>
   );

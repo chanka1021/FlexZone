@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState ,useContext} from 'react';
 import '../components/styles/Sign.css'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../Util/userContext';
 
 
 function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [user,setUser] = useState(null);
+   const {user,setUser}= useContext(UserContext)
     const handleSignIn = async (e) => {
         e.preventDefault();
         // Add your sign-in logic here, e.g., make an API call to authenticate the user

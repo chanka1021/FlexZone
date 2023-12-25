@@ -15,28 +15,30 @@ import Dashboard from "./pages/Dashboard";
 import NearestGyms from "./pages/NearestGyms";
 import axios from "axios";
 
-axios.defaults.baseURL="http://localhost:8000/api";
-
-
+import { useState } from "react";
+import { UserContext } from "./Util/userContext";
+axios.defaults.baseURL = "http://localhost:8000/api";
 
 function App() {
+  const [user, setUser] = useState({});
+  const [token, setToken] = useState(null);
   return (
     <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/clubs" element={<Clubs />} />
+        <Route path="/Store" element={<Store />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/clubs/:id" element={<Club />} />
+        <Route path="/nearest" element={<NearestGyms />} />
 
-     <Navbar/>
-    <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path="/clubs" element={<Clubs/>} />
-      <Route path="/Store" element={<Store/>} />
-      <Route path="/contact" element={<Contact/>} />
-      <Route path="/about" element={<About/>} />
-      <Route path="/signin" element={<SignIn/>} />
-      <Route path="/signup" element={<SignUp/>} />
-      <Route path="/clubs/:id" element={<Club/>} />
-      <Route path="/nearest" element={<NearestGyms/>} />
-      <Route path="/dashboard" element={<Dashboard />} />
-
-
+        <UserContext.Provider value={{ user, setUser,token,setToken }}>
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </UserContext.Provider>
       </Routes>
       <Footer />
     </>

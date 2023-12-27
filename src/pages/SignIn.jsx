@@ -19,8 +19,9 @@ function SignIn() {
           if (res.status === 200) {
             //console.log(200,res)
             setToken(res.data.data);
-            alert(res.data.message);
-            navigate("/dashboard")
+            localStorage.setItem('token',res.data.data)
+          //  alert(res.data.message);
+            return navigate("/dashboard")
           } else {
             alert("something wrong happends");
           }

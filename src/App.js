@@ -21,7 +21,7 @@ axios.defaults.baseURL = "http://localhost:8000/api";
 
 function App() {
   const [user, setUser] = useState({});
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem('token') || null);
   return (
     <>
       <Navbar />

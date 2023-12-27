@@ -12,6 +12,7 @@ import { BsInfoSquare } from "react-icons/bs";
 import img from '../assets/reussiPhoto.png'
 import UserOverView from '../components/userdashboard components/UserOverView';
 import UsersGym from '../components/userdashboard components/UsersGym';
+import Gymoverview from '../components/gymOwner dashboard components/Gymoverview';
 
 function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -31,7 +32,7 @@ function Dashboard() {
   ]
 
   const GymOwnerNavItems = [
-    { id: 'dashboard', icon: <MdOutlineDashboard />, text: 'dashboard' },
+    { id: 'dashboard', icon: <MdOutlineDashboard />, text: 'dashboard' ,component : <Gymoverview/>},
     { id: 'Plans', icon: <MdOutlinePriceCheck />, text: 'Plans' },
     { id: 'Adherants', icon: <FaUsers />, text: 'Adherants' },
     { id: 'Products', icon: <FaCartPlus />, text: 'Products' },
@@ -39,7 +40,7 @@ function Dashboard() {
     { id: 'Gym info', icon: <BsInfoSquare />, text: 'Gym info' },
   ]
   var NavItems;
-  var IsGymOwner = false;
+  var IsGymOwner = true;
   IsGymOwner ? NavItems = GymOwnerNavItems : NavItems = UserNavItems
 
   return (

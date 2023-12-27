@@ -13,6 +13,8 @@ import img from '../assets/reussiPhoto.png'
 import UserOverView from '../components/userdashboard components/UserOverView';
 import UsersGym from '../components/userdashboard components/UsersGym';
 import Gymoverview from '../components/gymOwner dashboard components/Gymoverview';
+import Gymplans from '../components/gymOwner dashboard components/Gymplans';
+import GymMembers from '../components/gymOwner dashboard components/GymMembers';
 
 function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -33,8 +35,8 @@ function Dashboard() {
 
   const GymOwnerNavItems = [
     { id: 'dashboard', icon: <MdOutlineDashboard />, text: 'dashboard' ,component : <Gymoverview/>},
-    { id: 'Plans', icon: <MdOutlinePriceCheck />, text: 'Plans' },
-    { id: 'Adherants', icon: <FaUsers />, text: 'Adherants' },
+    { id: 'Plans', icon: <MdOutlinePriceCheck />, text: 'Plans' ,component : <Gymplans/>},
+    { id: 'Adherants', icon: <FaUsers />, text: 'Adherants' , component : <GymMembers/> },
     { id: 'Products', icon: <FaCartPlus />, text: 'Products' },
     { id: 'Historique des achats ', icon: <MdOutlineProductionQuantityLimits />, text: 'Historique des achats ' },
     { id: 'Gym info', icon: <BsInfoSquare />, text: 'Gym info' },

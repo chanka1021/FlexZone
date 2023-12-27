@@ -20,14 +20,14 @@ function Gymoverview() {
     const opts = {
         xAxis: {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            data: ['dec', 'jan', 'feb', 'mar', 'apr', 'mai']
         },
         yAxis: {
             type: 'value'
         },
         series: [
             {
-                data: [150, 230, 224, 218, 135, 147, 260],
+                data: [150, 230, 224, 218, 135, 140],
                 type: 'line'
             }
         ]

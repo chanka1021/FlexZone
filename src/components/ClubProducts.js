@@ -12,7 +12,6 @@ function ClubProducts() {
         <ProductCard/>
         <ProductCard/>
         <ProductCard/>
-
       </div>
     </div>
   )

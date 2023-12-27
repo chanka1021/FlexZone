@@ -3,6 +3,9 @@
     padding: 0 150px;
     height: fit-content;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
 }
 
 .ClubProducts {
@@ -48,7 +51,6 @@
 .PCardContainer {
     height: 400px;
     width: 270px;
-    border: 1px solid yellow;
     display: flex;
     flex-direction: column;
 }
@@ -68,4 +70,11 @@
     color: chartreuse;
     position: absolute;
     bottom: 1px;
+}
+.ProductsContainer{
+    padding: 0 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }

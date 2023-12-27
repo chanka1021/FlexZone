@@ -11,6 +11,7 @@ import SignUp from "./pages/Signup";
 import Club from "./pages/Club";
 import Dashboard from "./pages/Dashboard";
 import Product from "./pages/Product";
+import ClubStore from "./pages/ClubStore";
 
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
         <Route path="/club" element={<Club />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/product" element={<Product />} />
+        <Route path="/Clubstore" element={<ClubStore />} />
+
 
 
 

@@ -25,21 +25,21 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/clubs" element={<Clubs />} />
-        <Route path="/Store" element={<Store />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/clubs/:id" element={<Club />} />
-        <Route path="/nearest" element={<NearestGyms />} />
+      <UserContext.Provider value={{ user, setUser, token, setToken }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/clubs" element={<Clubs />} />
+          <Route path="/Store" element={<Store />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/clubs/:id" element={<Club />} />
+          <Route path="/nearest" element={<NearestGyms />} />
 
-        <UserContext.Provider value={{ user, setUser,token,setToken }}>
           <Route path="/signin" element={<SignIn />} />
           <Route path="/dashboard" element={<Dashboard />} />
-        </UserContext.Provider>
-      </Routes>
+        </Routes>
+      </UserContext.Provider>
       <Footer />
     </>
   );

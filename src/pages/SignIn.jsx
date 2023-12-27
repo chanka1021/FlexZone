@@ -7,7 +7,7 @@ import { UserContext } from "../Util/userContext";
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { token, setToken } = useContext(UserContext);
+  const { token, setToken,setIsLoggedIn } = useContext(UserContext);
   const navigate = useNavigate()
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -19,6 +19,7 @@ function SignIn() {
           if (res.status === 200) {
             //console.log(200,res)
             setToken(res.data.data);
+            setIsLoggedIn(true)
             localStorage.setItem('token',res.data.data)
           //  alert(res.data.message);
             return navigate("/dashboard")

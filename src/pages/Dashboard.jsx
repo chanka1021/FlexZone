@@ -29,6 +29,7 @@ function Dashboard() {
     const config = {
       headers: { Authorization: `Bearer ${token}` },
     };
+   
     try {
       axios
         .get("/user/profile", config)
@@ -36,6 +37,7 @@ function Dashboard() {
           //console.log(res.status)
           if (res.status === 200) {
             setUser(res.data.data);
+            localStorage.setItem('user',res.data.data)
             console.log(res.data.data);
           } else {
             return navigate("/signin");

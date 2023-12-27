@@ -4,6 +4,7 @@ import GlobaleTitle from "./GlobaleTitle";
 import ClubCard from "./ClubCard";
 import gym from "../assets/gym.jpg"
 import axios from "axios"
+import { Link } from "react-router-dom";
 function PartnersSection() {
   const [gyms,setGyms] = useState([]);
     useEffect(()=>{
@@ -23,12 +24,14 @@ function PartnersSection() {
       <div className="row">
         <GlobaleTitle t1="ENTRAÎNEMENTS" t2="Nos Partenaires" />
         <div>
-          <div className="MainBtn"> Voir tout</div>
+          <Link to={"/clubs"}>  <div className="MainBtn"> Voir tout</div></Link>
+        
         </div>
       </div>
       <div className="CardsContainer">
         {gyms?.map(gym=>{
-          return  <ClubCard img={gym.images[0]} title={gym.name} desc="Lorem ipsum aventur exrag gtra gwoo"/>
+          return <ClubCard key={gym.id} id={gym.id} img={gym.images[0]} title={gym.name} desc={gym.description.slice(0,100)} />
+
         })}
      
       </div>

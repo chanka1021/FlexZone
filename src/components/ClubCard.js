@@ -6,7 +6,7 @@ function ClubCard(props) {
     <div className='ClubCardContainer'>
         <img className='' src={'http://localhost:8000/images/gymImgs/'+props.img} />
         <p className='ClubTitle'>{props.title}</p>
-        <p>{props.desc}</p>
+        <p>{props.desc}...</p>
         <p className='suite'><Link to={'/clubs/'+props.id}>Voir la Suite</Link></p>
 
     </div>

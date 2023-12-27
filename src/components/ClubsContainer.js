@@ -34,7 +34,7 @@ function ClubsContainer() {
             <GlobaleTitle t1="Nos" t2="Partenaires"  center={true} />
             <div className="card-container">
                 {gyms?.map((gym) => (
-                    <ClubCard key={gym.id} id={gym.id} img={gym.images[0]} title={gym.name} desc={gym.email} />
+                    <ClubCard key={gym.id} id={gym.id} img={gym.images[0]} title={gym.name} desc={gym.description.slice(0,50)} />
                 ))}
             </div>
             <div className='SponsoredGym' style={{ backgroundImage: `url(${img})` }}>

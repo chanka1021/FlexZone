@@ -10,6 +10,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/Signup";
 import Club from "./pages/Club";
 import Dashboard from "./pages/Dashboard";
+import Product from "./pages/Product";
 
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/club" element={<Club />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/product" element={<Product />} />
+
 
 
 

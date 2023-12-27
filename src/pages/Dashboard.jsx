@@ -26,7 +26,6 @@ function Dashboard() {
 
   const UserNavItems = [
     { id: 'Aperçu', icon: <MdOutlineDashboard />, text: 'Aperçu' ,component : <UserOverView/> },
-    { id: 'calendar', icon: <IoCalendarOutline />, text: 'Calendrier'  },
     { id: 'club', icon: <GiGymBag />, text: 'Club', component : <UsersGym/>},
     { id: 'achats', icon: <MdOutlineProductionQuantityLimits />, text: 'Achats' },
   ]

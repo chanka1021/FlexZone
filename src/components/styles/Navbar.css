@@ -92,7 +92,9 @@ nav .MenuMobile :nth-child(1) {
     background-color: #F2F2F2;
     border-radius: 8px;
 }
-
+.logout-btn:hover{
+color: red;
+}
 
 @media (max-width: 480px) {
     nav .MenuMobile {

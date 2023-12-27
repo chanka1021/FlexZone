@@ -20,12 +20,18 @@ import { UserContext } from "./Util/userContext";
 axios.defaults.baseURL = "http://localhost:8000/api";
 
 function App() {
-  const [user, setUser] = useState({});
-  const [token, setToken] = useState(localStorage.getItem('token') || null);
+  const [user, setUser] = useState(localStorage.getItem("user") || null);
+  const [token, setToken] = useState(localStorage.getItem("token") || null);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    Boolean(localStorage.getItem("user")) &&
+      Boolean(localStorage.getItem("token"))
+  );
   return (
     <>
-      <Navbar />
-      <UserContext.Provider value={{ user, setUser, token, setToken }}>
+      <UserContext.Provider
+        value={{ user, setUser, token, setToken, isLoggedIn, setIsLoggedIn }}
+      >
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/clubs" element={<Clubs />} />

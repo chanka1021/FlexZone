@@ -34,7 +34,7 @@
     border-radius: 4px;
   }
   
-  .add-club-container form button {
+  .add-club-container .add-club-btn button {
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;

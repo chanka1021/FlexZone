@@ -22,10 +22,7 @@ axios.defaults.baseURL = "http://localhost:8000/api";
 function App() {
   const [user, setUser] = useState(localStorage.getItem("user") || null);
   const [token, setToken] = useState(localStorage.getItem("token") || null);
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    Boolean(localStorage.getItem("user")) &&
-      Boolean(localStorage.getItem("token"))
-  );
+  const [isLoggedIn, setIsLoggedIn] = useState(user && token);
   return (
     <>
       <UserContext.Provider

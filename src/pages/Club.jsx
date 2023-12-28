@@ -18,6 +18,7 @@ import { IoCaretBackCircleOutline, IoCaretForwardCircleOutline } from "react-ico
 
 import img from '../assets/gym.jpg'
 import img2 from '../assets/sec1.jpg'
+import ImageCarousel from '../components/ImageCarousel';
 
 
 function Club() {
@@ -36,19 +37,7 @@ function Club() {
     { name: "wifi", icon: FaWifi },
     { name: "restaurant", icon: IoMdRestaurant },
   ]
-  const images = [img, img2, img, img2]
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const handleNext = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const handlePrevious = () => {
-    setCurrentImageIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
-    );
-  };
+ 
   return (
     <div className='ClubMainContainer'>
       <div className='infos'>
@@ -78,15 +67,7 @@ function Club() {
 
         </div>
         <div className='photos'>
-          <div className='ClubGallery'><img
-            className="slider-image"
-            src={images[currentImageIndex]}
-          />
-          </div>
-          <div className="button-container">
-            <div onClick={handlePrevious}><IoCaretBackCircleOutline/></div>
-            <div onClick={handleNext}><IoCaretForwardCircleOutline/></div>
-          </div>
+          <ImageCarousel/>
         </div>
 
       </div>

@@ -1,9 +1,11 @@
 import React from 'react'
 import '../styles/GymProducts.css'
 import { useState } from 'react';
+import ProductCA from '../ProductCA';
 
 
 function GymProducts() {
+
 
     const products = [
         {
@@ -15,6 +17,14 @@ function GymProducts() {
 
 
     const [searchNom, setSearchNom] = useState('');
+    const [showProductForm, setShowProductForm] = useState(false);
+    const handleAddProductClick = () => {
+        setShowProductForm(true);
+      };
+    
+      const handleProductFormClose = () => {
+        setShowProductForm(false);
+      };
     const filteredProducts = products.filter(product =>
         product.name.toLowerCase().includes(searchNom.toLowerCase())
     );
@@ -29,7 +39,7 @@ function GymProducts() {
                 value={searchNom}
                 onChange={(e) => setSearchNom(e.target.value)}
                 className="search-input"
-            /> <div className='addProduct'>Ajouter un produit</div>
+            /> <div className='addProduct'  onClick={handleAddProductClick}>Ajouter un produit</div>
 
     </div>
    
@@ -55,6 +65,7 @@ function GymProducts() {
             ))}
         </tbody>
     </table>
+    {showProductForm && <ProductCA onClose={handleProductFormClose} />}
 </div>
 );
 }

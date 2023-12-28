@@ -16,6 +16,7 @@ import Gymoverview from '../components/gymOwner dashboard components/Gymoverview
 import Gymplans from '../components/gymOwner dashboard components/Gymplans';
 import GymMembers from '../components/gymOwner dashboard components/GymMembers';
 import GymProducts from '../components/gymOwner dashboard components/GymProducts';
+import GymInfo from '../components/gymOwner dashboard components/GymInfo';
 
 function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -40,7 +41,7 @@ function Dashboard() {
     { id: 'Adherants', icon: <FaUsers />, text: 'Adherants' , component : <GymMembers/> },
     { id: 'Products', icon: <FaCartPlus />, text: 'Products' ,component : <GymProducts/> },
     { id: 'Historique des achats ', icon: <MdOutlineProductionQuantityLimits />, text: 'Historique des achats ' },
-    { id: 'Gym info', icon: <BsInfoSquare />, text: 'Gym info' },
+    { id: 'Gym info', icon: <BsInfoSquare />, text: 'Gym info',component : <GymInfo/> },
   ]
   var NavItems;
   var IsGymOwner = true;

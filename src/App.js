@@ -17,6 +17,7 @@ import axios from "axios";
 
 import { useState } from "react";
 import { UserContext } from "./Util/userContext";
+import AddClub from "./pages/AddClub";
 axios.defaults.baseURL = "http://localhost:8000/api";
 
 function App() {
@@ -41,6 +42,9 @@ function App() {
 
           <Route path="/signin" element={<SignIn />} />
           <Route path="/dashboard" element={<Dashboard />} />
+
+          <Route path="/dashboard/add-your-club" element={<AddClub/>} />
+          
         </Routes>
       </UserContext.Provider>
       <Footer />

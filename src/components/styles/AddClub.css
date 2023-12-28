@@ -1,0 +1,100 @@
+
+
+.add-club-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   padding: 20px 0;
+    background-color: #f4f4f4;
+  }
+  
+  .add-club-container form {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .add-club-container form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .add-club-container form input,
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-club-container form button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-club-container form button:hover {
+    background-color: #0056b3;
+  }
+  .add-club-container .add-club-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+  .add-club-container .steps-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 35%;
+  }
+  
+  .add-club-container .step-circle {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #007bff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+   
+  }
+  
+  .add-club-container .step-circle:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .add-club-container .step-circle.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .add-club-container .step-circle.done {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 600px) {
+    .add-club-container  form {
+      max-width: 100%;
+    }
+  }
+  

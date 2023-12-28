@@ -1,10 +1,27 @@
 import React from 'react'
+import '../styles/GymProducts.css'
+import { useState } from 'react';
+
 
 function GymProducts() {
+
+    const products = [
+        {
+            name: "John Doe",
+            image: "https://placekitten.com/50/50", // Replace with actual image URL
+            price: "222",
+            leftDuration: "30 days"
+        }]
+
+
+    const [searchNom, setSearchNom] = useState('');
+    const filteredProducts = products.filter(product =>
+        product.name.toLowerCase().includes(searchNom.toLowerCase())
+    );
   return (
-    <div className='GymMembersContainer'>
+    <div className='GymProductsContainer'>
     <span>
-        <h1>Members de Club</h1>
+        <h1>Produits de Club</h1>
         <div>
             rechereche :       <input
                 type="text"
@@ -12,27 +29,28 @@ function GymProducts() {
                 value={searchNom}
                 onChange={(e) => setSearchNom(e.target.value)}
                 className="search-input"
-            />
-        </div>
+            /> <div className='addProduct'>Ajouter un produit</div>
 
+    </div>
+   
     </span>
 
-    <table className="members-table">
+    <table className="products-table">
         <thead>
             <tr>
                 <th>Image</th>
                 <th>Nom</th>
-                <th>Active Plan</th>
-                <th>Reste</th>
+                <th>Prix</th>
+                <th>Editer</th>
             </tr>
         </thead>
         <tbody>
-            {filteredMembers.map((member, index) => (
-                <tr key={index} className="member-row">
-                    <td><img src={member.image} alt={`${member.name}'s picture`} className="member-image" /></td>
-                    <td>{member.name}</td>
-                    <td>{member.price}</td>
-                    <td> Edit</td>
+            {filteredProducts.map((produit, index) => (
+                <tr key={index} className="product-row">
+                    <td><img src={produit.image} alt={`${produit.name}'s picture`} className="product-image" /></td>
+                    <td>{produit.name}</td>
+                    <td>{produit.price}</td>
+                    <td> <p className='ProductEditBtn'>Editer</p></td>
                 </tr>
             ))}
         </tbody>

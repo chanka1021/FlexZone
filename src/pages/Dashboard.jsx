@@ -15,6 +15,7 @@ import UsersGym from '../components/userdashboard components/UsersGym';
 import Gymoverview from '../components/gymOwner dashboard components/Gymoverview';
 import Gymplans from '../components/gymOwner dashboard components/Gymplans';
 import GymMembers from '../components/gymOwner dashboard components/GymMembers';
+import GymProducts from '../components/gymOwner dashboard components/GymProducts';
 
 function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -37,7 +38,7 @@ function Dashboard() {
     { id: 'dashboard', icon: <MdOutlineDashboard />, text: 'dashboard' ,component : <Gymoverview/>},
     { id: 'Plans', icon: <MdOutlinePriceCheck />, text: 'Plans' ,component : <Gymplans/>},
     { id: 'Adherants', icon: <FaUsers />, text: 'Adherants' , component : <GymMembers/> },
-    { id: 'Products', icon: <FaCartPlus />, text: 'Products' },
+    { id: 'Products', icon: <FaCartPlus />, text: 'Products' ,component : <GymProducts/> },
     { id: 'Historique des achats ', icon: <MdOutlineProductionQuantityLimits />, text: 'Historique des achats ' },
     { id: 'Gym info', icon: <BsInfoSquare />, text: 'Gym info' },
   ]

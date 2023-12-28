@@ -8,16 +8,39 @@ import { LuLogOut } from "react-icons/lu";
 import ico from "../assets/Icon.png";
 import { UserContext } from "../Util/userContext";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { checkAuth } from "../data/checkAuthntication";
 
 export const Navbar = () => {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
+  const { isLoggedIn, setIsLoggedIn ,user,setUser,setToken,token} = useContext(UserContext);
   const handleLogout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     setIsLoggedIn(false);
+    setUser(null);
+    setToken(null);
   };
+
+  const handleBecomeAnOwner=()=>{
+    checkAuth(token,user,navigate);
+    alert('becoming an owner')
+    try {
+        axios.post('/gymOwner/'+user.id,{},{headers: { Authorization: `Bearer ${token}` }})
+        .then(res=>{
+            if(res.status===200){
+              alert("you ve become a gym owner , congrats! , re-login please");
+              handleLogout()
+            }else{
+              alert("something wrong happend try again later!")
+            }
+        })
+    } catch (error) {
+      
+    }
+  
+  }
   return (
     <nav>
       <Link to="/" className="title">
@@ -54,6 +77,12 @@ export const Navbar = () => {
               <NavLink to="/signin">S'inscrire</NavLink>
             </div>
           )}
+        </li>
+        <li>
+          {isLoggedIn && user?.is_gym_owner && !user?.has_gym &&(<NavLink to={"/dashboard/add-your-club"}>Ajouter Votre Club</NavLink>)}
+        </li>
+        <li>
+          {isLoggedIn && !user?.is_gym_owner && !user?.has_gym &&(<div onClick={handleBecomeAnOwner} className=" become-a-gym-owner"><NavLink>Devenir Propriétaire</NavLink></div>)}
         </li>
         <li>
           {isLoggedIn && (

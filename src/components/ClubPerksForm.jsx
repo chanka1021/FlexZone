@@ -46,6 +46,7 @@ const ClubPerksForm = ({selectedPerks,setSelectedPerks}) => {
           ))}
         </ul>
       </div>
+     
     </div>
   );
 };

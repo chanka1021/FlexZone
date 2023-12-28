@@ -95,6 +95,17 @@ nav .MenuMobile :nth-child(1) {
 .logout-btn:hover{
 color: red;
 }
+nav .become-a-gym-owner{
+    margin-right: 5px;
+    background-color: #04AA6D;
+    border-radius: 8px;
+}
+nav .become-a-gym-owner a{
+    color:white;
+}
+nav .become-a-gym-owner:hover{
+    background-color: #03925e;
+}
 
 @media (max-width: 480px) {
     nav .MenuMobile {

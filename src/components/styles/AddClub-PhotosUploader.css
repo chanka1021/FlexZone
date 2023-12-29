@@ -35,7 +35,7 @@
   
   @media (min-width: 1024px) {
     .photo-container {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
   }
   
@@ -73,9 +73,10 @@
     padding: 0.5rem 0.75rem;
   }
   .upload-container {
+    
     height: 7rem;
     cursor: pointer;
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 0.25rem;
     justify-content: center;
@@ -85,11 +86,12 @@
     padding: 0.5rem;
     font-size: 2rem;
     transition: 0.8s;
+   
     
   }
   .upload-container:hover{
-    border: solid 1.8px #6a96ee;
-    transform: scale(1.05, 1.05);
+    border: solid 1px #6a96ee;
+    
     background-color: lightgray;
   }
   

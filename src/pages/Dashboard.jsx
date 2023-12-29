@@ -20,6 +20,7 @@ import GymProducts from '../components/gymOwner dashboard components/GymProducts
 import GymInfo from '../components/gymOwner dashboard components/GymInfo';
 import SubsHistory from '../components/gymOwner dashboard components/SubsHistory';
 import SoldProducts from '../components/gymOwner dashboard components/SoldProducts';
+import Purchases from '../components/userdashboard components/Purchases';
 
 function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -35,7 +36,7 @@ function Dashboard() {
   const UserNavItems = [
     { id: 'Aperçu', icon: <MdOutlineDashboard />, text: 'Aperçu', component: <UserOverView /> },
     { id: 'club', icon: <GiGymBag />, text: 'Club', component: <UsersGym /> },
-    { id: 'achats', icon: <MdOutlineProductionQuantityLimits />, text: 'Achats' },
+    { id: 'achats', icon: <MdOutlineProductionQuantityLimits />, text: 'Achats' , component : <Purchases/>},
   ]
 
   const GymOwnerNavItems = [
@@ -47,8 +48,9 @@ function Dashboard() {
     { id: 'Produits Vendu', icon: <TbPackageExport />, text: 'Produits Vendu', component: <SoldProducts /> },
     { id: 'Gym info', icon: <BsInfoSquare />, text: 'Gym info', component: <GymInfo /> },
   ]
+  
   var NavItems;
-  var IsGymOwner = true;
+  var IsGymOwner = false;
   IsGymOwner ? NavItems = GymOwnerNavItems : NavItems = UserNavItems
 
   return (

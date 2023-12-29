@@ -73,7 +73,7 @@ export const Navbar = () => {
           <NavLink to="/contact">Contact</NavLink>
         </li>
         <li>
-          {isLoggedIn ? (
+          {isLoggedIn && user ? (
             <NavLink to="/dashboard">Dashboard</NavLink>
           ) : (
             <div className="AccountBtn">

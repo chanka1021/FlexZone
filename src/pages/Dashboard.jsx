@@ -8,6 +8,7 @@ import { MdOutlinePriceCheck } from "react-icons/md";
 import { FaUsers } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa6";
 import { BsInfoSquare } from "react-icons/bs";
+import { TbPackageExport } from "react-icons/tb";
 
 import img from '../assets/reussiPhoto.png'
 import UserOverView from '../components/userdashboard components/UserOverView';
@@ -17,6 +18,8 @@ import Gymplans from '../components/gymOwner dashboard components/Gymplans';
 import GymMembers from '../components/gymOwner dashboard components/GymMembers';
 import GymProducts from '../components/gymOwner dashboard components/GymProducts';
 import GymInfo from '../components/gymOwner dashboard components/GymInfo';
+import SubsHistory from '../components/gymOwner dashboard components/SubsHistory';
+import SoldProducts from '../components/gymOwner dashboard components/SoldProducts';
 
 function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -24,24 +27,25 @@ function Dashboard() {
 
   const handleItemClick = (item) => {
     const selectedItemObj = UserNavItems.find((navItem) => navItem.id === item) || GymOwnerNavItems.find((navItem) => navItem.id === item);
-    
+
     setSelectedItem(selectedItemObj.id);
     setSelectedComponent(selectedItemObj.component || null);
   };
 
   const UserNavItems = [
-    { id: 'Aperçu', icon: <MdOutlineDashboard />, text: 'Aperçu' ,component : <UserOverView/> },
-    { id: 'club', icon: <GiGymBag />, text: 'Club', component : <UsersGym/>},
+    { id: 'Aperçu', icon: <MdOutlineDashboard />, text: 'Aperçu', component: <UserOverView /> },
+    { id: 'club', icon: <GiGymBag />, text: 'Club', component: <UsersGym /> },
     { id: 'achats', icon: <MdOutlineProductionQuantityLimits />, text: 'Achats' },
   ]
 
   const GymOwnerNavItems = [
-    { id: 'dashboard', icon: <MdOutlineDashboard />, text: 'dashboard' ,component : <Gymoverview/>},
-    { id: 'Plans', icon: <MdOutlinePriceCheck />, text: 'Plans' ,component : <Gymplans/>},
-    { id: 'Adherants', icon: <FaUsers />, text: 'Adherants' , component : <GymMembers/> },
-    { id: 'Products', icon: <FaCartPlus />, text: 'Products' ,component : <GymProducts/> },
-    { id: 'Historique des achats ', icon: <MdOutlineProductionQuantityLimits />, text: 'Historique des achats ' },
-    { id: 'Gym info', icon: <BsInfoSquare />, text: 'Gym info',component : <GymInfo/> },
+    { id: 'dashboard', icon: <MdOutlineDashboard />, text: 'dashboard', component: <Gymoverview /> },
+    { id: 'Plans', icon: <MdOutlinePriceCheck />, text: 'Plans', component: <Gymplans /> },
+    { id: 'Adherants', icon: <FaUsers />, text: 'Adherants', component: <GymMembers /> },
+    { id: 'Products', icon: <FaCartPlus />, text: 'Products', component: <GymProducts /> },
+    { id: 'Historique des abonnements', icon: <MdOutlineProductionQuantityLimits />, text: 'Historique des abonnements ', component: <SubsHistory /> },
+    { id: 'Produits Vendu', icon: <TbPackageExport />, text: 'Produits Vendu', component: <SoldProducts /> },
+    { id: 'Gym info', icon: <BsInfoSquare />, text: 'Gym info', component: <GymInfo /> },
   ]
   var NavItems;
   var IsGymOwner = true;
@@ -49,7 +53,7 @@ function Dashboard() {
 
   return (
     <div className='Dashboard'>
-       <div className="DBnavbar">
+      <div className="DBnavbar">
         <ul>
           {NavItems.map((item) => (
             <li
@@ -64,8 +68,8 @@ function Dashboard() {
         </ul>
       </div>
       <div className='Actions'>
-      {selectedComponent}
-      
+        {selectedComponent}
+
       </div>
       <div className='UserData'>
         <div className='UserDetails'>
@@ -77,14 +81,14 @@ function Dashboard() {
         <div className='UserPersonalInfos'>
           <p>détails personnels</p>
           <span>Num de tele : <a>066666666</a></span>
-          <hr/> 
+          <hr />
           <span>Adress : <a>sdsdsd sdsd</a></span>
-          <hr/> 
+          <hr />
           <span>Email : <a>sdsd@sdsd.sdsd</a></span>
         </div>
 
       </div>
-    
+
     </div>
   )
 }

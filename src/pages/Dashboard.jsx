@@ -18,6 +18,7 @@ import axios from "axios";
 function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedComponent, setSelectedComponent] = useState(null);
+  const [ready,setReady] = useState(false);
   
   const navigate = useNavigate();
   //shared state
@@ -38,8 +39,10 @@ function Dashboard() {
           //console.log(res.status)
           if (res.status === 200) {
             setUser(res.data.data);
+            localStorage.removeItem('user');
             localStorage.setItem("user", res.data.data);
             console.log(res.data.data);
+            setReady(true)
           } else {
             return navigate("/signin");
           }
@@ -132,7 +135,7 @@ function Dashboard() {
 
   // Ref for the file input element
   const fileInputRef = React.createRef();
-  if (token && user) {
+  if (token && user && ready) {
     return (
       <div className="Dashboard">
         <div className="DBnavbar">

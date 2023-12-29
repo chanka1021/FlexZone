@@ -1,71 +1,71 @@
+import React, { useState } from "react";
 import axios from "axios";
-import {useState} from "react";
-import Image from "./Image.jsx";
-import "../components/styles/AddClub-PhotosUploader.css"
+import Image from "./Image";
+import { FaStar } from "react-icons/fa";
+import { CiStar } from "react-icons/ci";
+import { MdDelete } from "react-icons/md";
 
-export default function ClubPhotosUploader({addedPhotos,onChange}) {
-  const [photoLink,setPhotoLink] = useState('');
-  async function addPhotoByLink(ev) {
-    ev.preventDefault();
-    const {data:filename} = await axios.post('/rooms/upload-by-link', {link: photoLink});
-    onChange(prev => {
-      return [...prev, filename];
-    });
-    setPhotoLink('');
-  }
-  
-  function uploadPhoto(ev) {
+
+
+import "../components/styles/AddClub-PhotosUploader.css";
+
+export default function ClubPhotosUploader({ onChange }) {
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
+  function handleFileChange(ev) {
     const files = ev.target.files;
-    const data = new FormData();
-    for (let i = 0; i < files.length; i++) {
-      data.append('photos', files[i]);
-    }
-    axios.post('/rooms/upload', data, {
-      headers: {'Content-type':'multipart/form-data'}
-    }).then(response => {
-      const {data:filenames} = response;
-      onChange(prev => {
-        return [...prev, ...filenames];
-      });
-    })
+    const selectedFilesArray = Array.from(files);
+    
+    // Use the functional form of setState to ensure the updated state
+    setSelectedFiles(prevSelectedFiles => [...prevSelectedFiles, ...selectedFilesArray]);
+
+    // Pass the updated state to the onChange callback
+    onChange([...selectedFiles, ...selectedFilesArray]);
   }
-  function removePhoto(ev,filename) {
+
+  function selectAsMainPhoto(ev,index) {
     ev.preventDefault();
-    onChange([...addedPhotos.filter(photo => photo !== filename)]);
+    setSelectedFiles([selectedFiles[index],...selectedFiles.filter((photo,i) => i !== index)]);
+    onChange(selectedFiles)
   }
-  function selectAsMainPhoto(ev,filename) {
+
+  function removePhoto(ev,index) {
     ev.preventDefault();
-    onChange([filename,...addedPhotos.filter(photo => photo !== filename)]);
+    setSelectedFiles([...selectedFiles.filter((photo,i) => i !== index)]);
+    onChange(selectedFiles)
   }
   return (
     <>
-      <div className="photo-input">
-        <input value={photoLink}
-               onChange={ev => setPhotoLink(ev.target.value)}
-               type="text" placeholder={'Add using a link ....jpg'}/>
-        <button onClick={addPhotoByLink} className="photo-input-btn">Add&nbsp;photo</button>
-      </div>
       <div className="photo-container">
-        {addedPhotos.length > 0 && addedPhotos.map(link => (
-          <div className="photo-container-item" key={link}>
-            <Image className="photo-item" src={link} alt=""/>
-            <button onClick={ev => removePhoto(ev,link)} className="remove-btn">
-            <i className="fa-solid fa-trash-can image-uploader-icons"></i>
+        {selectedFiles.length > 0 &&
+          selectedFiles.map((file, index) => (
+            <div className="photo-container-item" key={index}>
+               <button onClick={ev => removePhoto(ev,index)} className="remove-btn">
+            <MdDelete/>
             </button>
-            <button onClick={ev => selectAsMainPhoto(ev,link)} className="pin-btn">
-              {link === addedPhotos[0] && (
-                <i className="fa-solid fa-star image-uploader-icons"></i>
+              <img
+                className="photo-item"
+                src={URL.createObjectURL(file)}
+                alt=""
+              />
+               <button onClick={ev => selectAsMainPhoto(ev,index)} className="pin-btn">
+              {index === 0 && (
+                <FaStar/>
               )}
-              {link !== addedPhotos[0] && (
-                <i className="fa-regular fa-star image-uploader-icons"></i>
+              {index !== 0 && (
+               <CiStar/>
               )}
             </button>
-          </div>
-        ))}
+            </div>
+          ))}
         <label className="upload-container">
-          <input type="file" multiple className="hidden" onChange={uploadPhoto} />
-          <i className="fa-solid fa-cloud-arrow-up"></i>
-          Upload
+          <input
+            type="file"
+            multiple
+            className="hidden"
+            onChange={handleFileChange}
+          />
+          Select
         </label>
       </div>
     </>

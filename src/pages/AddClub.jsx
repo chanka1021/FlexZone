@@ -21,6 +21,7 @@ function AddClub() {
   const [surface, setSurface] = useState("");
   const [perks, setPerks] = useState([]);
   const [photos, setPhotos] = useState([]);
+  const [addedGymId,setAddedGymId]=useState(null)
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -49,6 +50,7 @@ function AddClub() {
             )
             .then((res) => {
               if (res.status === 201) {
+                setAddedGymId(res.data.data.id)
                 alert("Club infos added successfully");
                 handleNextStep();
               } else {
@@ -58,10 +60,58 @@ function AddClub() {
           break;
         case 2:
           //insert gym perks
+          if(perks && perks.length>0){
+            console.log(perks)
+            //data for the request
+            // { perks: selectedPerks.map((perk) => perk.value) }
+            try {
+                axios.post('/gym/perks', { perks: perks.map((perk) => perk.value) },
+            {
+              headers: { Authorization: `Bearer ${token}` },
+            }).then(res=>{
+                if(res.status===200){
+                    alert("perks added succcussfully")
+                    handleNextStep();
+                }else{
+                    alert("somthing wrong happends try again later");
+                }
+            })
+            } catch (error) {
+                
+            }
+            
+          }
 
           break;
         case 3:
           //insert gym photos
+          try {
+          
+                if (photos.length <3) {
+                  // No files selected
+                  alert("at least select 3 images")
+                  return;
+                }
+            
+                const data = new FormData();
+                for (let i = 0; i < photos.length; i++) {
+                  data.append("Imgs[]", photos[i]);
+                }
+            
+                axios
+                  .post("/gym/img", data, {
+                    headers: { "Content-type": "multipart/form-data" ,Authorization: `Bearer ${token}`},
+                  })
+                  .then((res) => {
+                    if(res.status===200){
+                        alert('gym images added sucessfully')
+                        navigate('/clubs/'+addedGymId)
+                    }
+                  })
+                 
+          } catch (error) {
+            
+          }
 
           break;
 
@@ -86,12 +136,13 @@ function AddClub() {
 
   useEffect(() => {
     checkAuth(token, user, navigate);
-    if (!user.is_gym_owner) {
+    if (!user.is_gym_owner || user.has_gym) {
       navigate("/dashboard");
     }
   });
 
-  return (
+  if(user && user.is_gym_owner && !user.has_gym){
+     return (
     <div className="add-club-container">
       <div className="steps-container">
         <div className={`step-circle ${step >= 1 && "active"}`}>1</div>
@@ -101,6 +152,7 @@ function AddClub() {
       <form onSubmit={handleSubmit}>
         {step === 1 && (
           <>
+          <h1 className="form-title-informer">Club Infos</h1>
             <label>
               {" "}
               Club Name:{" "}
@@ -177,11 +229,13 @@ function AddClub() {
             </label>
           </>
         )}
-        {step === 2 && (
-          <ClubPerksForm selectedPerks={perks} setSelectedPerks={setPerks} />
+        {step === 2 && (<>
+            <h1 className="form-title-informer">Club Perks</h1>
+          <ClubPerksForm selectedPerks={perks} setSelectedPerks={setPerks} /></>
         )}
-        {step === 3 && (
-          <ClubPhotosUploader addedPhotos={photos} onChange={setPhotos} />
+        {step === 3 && (<>
+            <h1 className="form-title-informer">Upload Club Images</h1>
+          <ClubPhotosUploader images={photos} onChange={setPhotos} /></>
         )}
         <div className="add-club-btn">
           <button type="submit">Next</button>
@@ -189,6 +243,8 @@ function AddClub() {
       </form>
     </div>
   );
+  }
+ 
 }
 
 export default AddClub;

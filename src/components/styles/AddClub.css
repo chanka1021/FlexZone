@@ -10,7 +10,7 @@
   }
   
   .add-club-container form {
-    max-width: 600px;
+    max-width: 650px;
     width: 100%;
     padding: 20px;
     background-color: #fff;
@@ -42,7 +42,9 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  
+  .add-club-container form .form-title-informer{
+    text-align: center;
+  }
   .add-club-container form button:hover {
     background-color: #0056b3;
   }

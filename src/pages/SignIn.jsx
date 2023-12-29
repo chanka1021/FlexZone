@@ -20,7 +20,7 @@ function SignIn() {
             //console.log(200,res)
             setToken(res.data.data);
             setIsLoggedIn(true)
-            localStorage.setItem('token',res.data.data)
+            localStorage.setItem('token',JSON.stringify(res.data.data))
           //  alert(res.data.message);
             return navigate("/dashboard")
           } else {

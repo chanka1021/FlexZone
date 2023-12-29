@@ -40,7 +40,7 @@ function Dashboard() {
           if (res.status === 200) {
             setUser(res.data.data);
             localStorage.removeItem('user');
-            localStorage.setItem("user", res.data.data);
+            localStorage.setItem("user", JSON.stringify(res.data.data));
             console.log(res.data.data);
             setReady(true)
           } else {

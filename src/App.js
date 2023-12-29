@@ -18,12 +18,13 @@ import axios from "axios";
 import { useState } from "react";
 import { UserContext } from "./Util/userContext";
 import AddClub from "./pages/AddClub";
+import SubscribeForm from "./pages/SubscribeForm";
 axios.defaults.baseURL = "http://localhost:8000/api";
 
 function App() {
-  const [user, setUser] = useState(localStorage.getItem("user") || null);
-  const [token, setToken] = useState(localStorage.getItem("token") || null);
-  const [isLoggedIn, setIsLoggedIn] = useState(user && token);
+  const [user, setUser] = useState( JSON.parse(localStorage.getItem("user")) || null);
+  const [token, setToken] = useState(JSON.parse(localStorage.getItem("token"))|| null);
+  const [isLoggedIn, setIsLoggedIn] = useState((user && token)?true:false);
   return (
     <>
       <UserContext.Provider
@@ -44,6 +45,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="/dashboard/add-your-club" element={<AddClub/>} />
+          <Route path="/subscribe" element={<SubscribeForm/>} />
           
         </Routes>
       </UserContext.Provider>

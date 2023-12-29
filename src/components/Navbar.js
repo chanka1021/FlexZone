@@ -82,7 +82,7 @@ export const Navbar = () => {
           )}
         </li>
         <li>
-          {isLoggedIn && user && user.is_gym_owner && !user.has_gym && (
+          {isLoggedIn && user && user.is_gym_owner && !user.has_gym && !user.is_admin && (
             <NavLink to={"/dashboard/add-your-club"}>
               Ajouter Votre Club
             </NavLink>

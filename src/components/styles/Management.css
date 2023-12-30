@@ -1,8 +1,14 @@
 .ManagementContainer{
     width: 100%;
     height: 100vh;
+    display: flex;
 }
 
 .AttendenceTable{
     width: 60%;
+    padding: 0 30px;
+}
+.scanArea{
+    width: 40%;
+    border: 1px solid black;
 }

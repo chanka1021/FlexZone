@@ -1,58 +1,64 @@
-import React from 'react'
-import '../components/styles/Management.css'
-import { Html5QrcodeScanner } from 'html5-qrcode';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import '../components/styles/Management.css';
+import { QrReader } from 'react-qr-reader';
+import styled from 'styled-components';
 
 function Management() {
-
-  const [scanResault, setScanResault] = useState(null);
-
-  const MembersAttendence = [
-
+  const [membersAttendance, setMembersAttendance] = useState([
     {
       name: "John Doe",
       checkIn: '14:00',
-      checkOut: '',
     },
     {
-      name: "John Doe",
+      name: "Jane Doe",
       checkIn: '14:00',
-      checkOut: '15:30',
     },
-  ]
+  ]);
 
-  let QrScanner = new Html5QrcodeScanner(
-    "reader",
-    { fps: 10, qrbox: { width: 250, height: 250 } });
+  const [data, setData] = useState('No result');
+  const [showMessage, setShowMessage] = useState(false);
 
-  QrScanner.render(success, error)
-
-  function success(res) {
-    setScanResaults(res);
-    QrScanner.clear();
+  function updateMemberAttendanceTable(name) {
+    const info = { name: name, checkIn: new Date().getHours() + ":" + new Date().getMinutes() };
+    setMembersAttendance([...membersAttendance, info]);
   }
-  function error(err) {
-    console.warn(err);
+
+  function approve(data) {
+    // check qr
+    // get qr member
+    // get name of member
+    // check his if sub is valid
+    updateMemberAttendanceTable("Achraf");
+    setShowMessage(true);
+
+    // Hide the message after 3 seconds
+    setTimeout(() => {
+      setShowMessage(false);
+    }, 3000);
   }
+
+  const Message = styled.div`
+    background-color: #a0dda0;
+    padding: 10px;
+    width: fit-content;
+  `;
 
   return (
     <div className='ManagementContainer'>
       <div className='AttendenceTable'>
-
         <span>
-          <h1>Attendence de members</h1>
+          <h1>Présence des membres aujourd'hui</h1>
         </span>
-
         <table className="products-table">
           <thead>
             <tr>
               <th>Nom</th>
-              <th>checkIn</th>
+              <th>CheckIn</th>
               <th>CheckOut</th>
             </tr>
           </thead>
           <tbody>
-            {MembersAttendence.map((ma, index) => (
+            {membersAttendance.map((ma, index) => (
               <tr key={index} className="product-row">
                 <td>{ma.name}</td>
                 <td>{ma.checkIn}</td>
@@ -63,10 +69,23 @@ function Management() {
         </table>
       </div>
       <div className='scanArea'>
-  qr scan
+        <>
+          <QrReader
+            onResult={(result, error) => {
+              if (!!result) {
+                approve(data);
+                console.log(result?.text);
+              }
+              if (!!error) {
+                console.info(error);
+              }
+            }}
+          />
+          {showMessage && <Message>Bienvenu</Message>}
+        </>
       </div>
     </div>
-  )
+  );
 }
 
-export default Management
+export default Management;

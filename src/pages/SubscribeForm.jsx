@@ -9,7 +9,7 @@ function SubscribeForm() {
   const [club, setClub] = useState(null);
   const [planeId, setPlaneId] = useState(null);
   const [duration, setDuration] = useState(1);
-  const { clubId } = useParams();
+  const clubId  = JSON.parse(localStorage.getItem('clubToSub'));
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -91,6 +91,7 @@ function SubscribeForm() {
         .then((res) => {
           if (res.status === 201) {
             alert("you subscribed succesfully");
+            localStorage.removeItem("clubToSub")
             return navigate("/dashboard");
           } else{
             alert('somthing wrong happend ,please try again')

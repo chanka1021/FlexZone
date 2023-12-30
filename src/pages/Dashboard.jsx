@@ -53,7 +53,7 @@ function Dashboard() {
     } catch (error) {
       // console.log(error)
     }
-  }, [token,user]);
+  }, []);
   const handleItemClick = (item) => {
     const selectedItemObj =
       UserNavItems.find((navItem) => navItem.id === item) ||

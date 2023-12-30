@@ -45,7 +45,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
 
           <Route path="/dashboard/add-your-club" element={<AddClub/>} />
-          <Route path="/subscribe/:clubId" element={<SubscribeForm/>} />
+          <Route path="/subscribe" element={<SubscribeForm/>} />
           
         </Routes>
       </UserContext.Provider>

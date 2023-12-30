@@ -19,7 +19,7 @@ import {
   IoCaretForwardCircleOutline,
 } from "react-icons/io5";
 import axios from "axios";
-import { useParams,NavLink } from "react-router-dom";
+import { useParams,NavLink,useNavigate } from "react-router-dom";
 import img from "../assets/gym.jpg";
 import img2 from "../assets/sec1.jpg";
 
@@ -28,6 +28,7 @@ function Club() {
 
   const { id } = useParams();
   const [club, setClub] = useState(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (!id) {
@@ -99,6 +100,13 @@ function Club() {
     { icon: <FaStar className="star" />, title: "Standard" },
     { icon: <MdDiamond className="diamond" />, title: "Premium" },
   ];
+
+  const handleDirectToSubscribe=(id)=>{
+    localStorage.removeItem('clubToSub')
+    localStorage.setItem("clubToSub",JSON.stringify(id))
+
+    navigate("/subscribe")
+  }
   return (
     <>
       {club ? (
@@ -200,7 +208,7 @@ function Club() {
                       <a>1 Semaines essaie gratuit</a>
                       <br />
                       {plan.description}
-                      <div className="PlanBtn"><NavLink to={'/subscribe/'+club.id}>Commencer</NavLink></div>
+                      <div className="PlanBtn" onClick={()=>handleDirectToSubscribe(club.id)}>Commencer</div>
                     </div>
                   </div>
                 );

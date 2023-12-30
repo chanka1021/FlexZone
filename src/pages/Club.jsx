@@ -19,7 +19,7 @@ import {
   IoCaretForwardCircleOutline,
 } from "react-icons/io5";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams,NavLink } from "react-router-dom";
 import img from "../assets/gym.jpg";
 import img2 from "../assets/sec1.jpg";
 
@@ -35,7 +35,11 @@ function Club() {
     }
     try {
       axios.get(`/gym/${id}`).then((response) => {
-        setClub(response.data.data);
+        if(response.status===200){
+          setClub(response.data.data);
+      }else{
+        alert('something wrong happends')
+      }
         console.log(response);
       });
     } catch (error) {
@@ -196,7 +200,7 @@ function Club() {
                       <a>1 Semaines essaie gratuit</a>
                       <br />
                       {plan.description}
-                      <div className="PlanBtn">Commencer</div>
+                      <div className="PlanBtn"><NavLink to={'/subscribe/'+club.id}>Commencer</NavLink></div>
                     </div>
                   </div>
                 );

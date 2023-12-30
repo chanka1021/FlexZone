@@ -22,6 +22,9 @@ function SignIn() {
             setIsLoggedIn(true)
             localStorage.setItem('token',JSON.stringify(res.data.data))
           //  alert(res.data.message);
+          if(localStorage.getItem('clubToSub')){
+            return navigate("/subscribe")
+          }
             return navigate("/dashboard")
           } else {
             alert("something wrong happends");

@@ -7,6 +7,22 @@ import { GiGymBag } from "react-icons/gi";
 import { MdOutlinePriceCheck } from "react-icons/md";
 import { FaUsers, FaCamera } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa6";
+
+import { BsInfoSquare } from "react-icons/bs";
+import { TbPackageExport } from "react-icons/tb";
+
+import img from '../assets/reussiPhoto.png'
+import UserOverView from '../components/userdashboard components/UserOverView';
+import UsersGym from '../components/userdashboard components/UsersGym';
+import Gymoverview from '../components/gymOwner dashboard components/Gymoverview';
+import Gymplans from '../components/gymOwner dashboard components/Gymplans';
+import GymMembers from '../components/gymOwner dashboard components/GymMembers';
+import GymProducts from '../components/gymOwner dashboard components/GymProducts';
+import GymInfo from '../components/gymOwner dashboard components/GymInfo';
+import SubsHistory from '../components/gymOwner dashboard components/SubsHistory';
+import SoldProducts from '../components/gymOwner dashboard components/SoldProducts';
+import Purchases from '../components/userdashboard components/Purchases';
+
 import { BsFillNutFill, BsInfoSquare } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import img from "../assets/reussiPhoto.png";
@@ -14,6 +30,7 @@ import UserOverView from "../components/userdashboard components/UserOverView";
 import UsersGym from "../components/userdashboard components/UsersGym";
 import { UserContext } from "../Util/userContext";
 import axios from "axios";
+
 
 function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -55,45 +72,38 @@ function Dashboard() {
     }
   }, []);
   const handleItemClick = (item) => {
+
     const selectedItemObj =
       UserNavItems.find((navItem) => navItem.id === item) ||
       GymOwnerNavItems.find((navItem) => navItem.id === item);
+
 
     setSelectedItem(selectedItemObj.id);
     setSelectedComponent(selectedItemObj.component || null);
   };
 
   const UserNavItems = [
-    {
-      id: "Aperçu",
-      icon: <MdOutlineDashboard />,
-      text: "Aperçu",
-      component: <UserOverView />,
-    },
-    { id: "calendar", icon: <IoCalendarOutline />, text: "Calendrier" },
-    { id: "club", icon: <GiGymBag />, text: "Club", component: <UsersGym /> },
-    {
-      id: "achats",
-      icon: <MdOutlineProductionQuantityLimits />,
-      text: "Achats",
-    },
-  ];
+
+    { id: 'Aperçu', icon: <MdOutlineDashboard />, text: 'Aperçu', component: <UserOverView /> },
+    { id: 'club', icon: <GiGymBag />, text: 'Club', component: <UsersGym /> },
+    { id: 'achats', icon: <MdOutlineProductionQuantityLimits />, text: 'Achats' , component : <Purchases/>},
+  ]
 
   const GymOwnerNavItems = [
-    { id: "dashboard", icon: <MdOutlineDashboard />, text: "dashboard" },
-    { id: "Plans", icon: <MdOutlinePriceCheck />, text: "Plans" },
-    { id: "Adherants", icon: <FaUsers />, text: "Adherants" },
-    { id: "Products", icon: <FaCartPlus />, text: "Products" },
-    {
-      id: "Historique des achats ",
-      icon: <MdOutlineProductionQuantityLimits />,
-      text: "Historique des achats ",
-    },
-    { id: "Gym info", icon: <BsInfoSquare />, text: "Gym info" },
-  ];
+    { id: 'dashboard', icon: <MdOutlineDashboard />, text: 'dashboard', component: <Gymoverview /> },
+    { id: 'Plans', icon: <MdOutlinePriceCheck />, text: 'Plans', component: <Gymplans /> },
+    { id: 'Adherants', icon: <FaUsers />, text: 'Adherants', component: <GymMembers /> },
+    { id: 'Products', icon: <FaCartPlus />, text: 'Products', component: <GymProducts /> },
+    { id: 'Historique des abonnements', icon: <MdOutlineProductionQuantityLimits />, text: 'Historique des abonnements ', component: <SubsHistory /> },
+    { id: 'Produits Vendu', icon: <TbPackageExport />, text: 'Produits Vendu', component: <SoldProducts /> },
+    { id: 'Gym info', icon: <BsInfoSquare />, text: 'Gym info', component: <GymInfo /> },
+  ]
+  
+
   var NavItems;
   var IsGymOwner = false;
   IsGymOwner ? (NavItems = GymOwnerNavItems) : (NavItems = UserNavItems);
+
 
   const handleChangeProfilePicture = () => {
     // Trigger the click event of the hidden file input
@@ -206,12 +216,15 @@ function Dashboard() {
               Email : <a>{user.email}</a>
             </span>
           </div>
+
         </div>
       </div>
+
     );
   } else {
     return <h1>Loading...</h1>;
   }
+
 }
 
 export default Dashboard;

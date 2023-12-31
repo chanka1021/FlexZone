@@ -11,6 +11,9 @@ import SignUp from "./pages/Signup";
 import Club from "./pages/Club";
 
 import Dashboard from "./pages/Dashboard";
+import Product from "./pages/Product";
+import ClubStore from "./pages/ClubStore";
+import Management from "./pages/Management";
 
 import NearestGyms from "./pages/NearestGyms";
 import axios from "axios";
@@ -27,6 +30,10 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState((user && token)?true:false);
   return (
     <>
+
+
+
+
       <UserContext.Provider
         value={{ user, setUser, token, setToken, isLoggedIn, setIsLoggedIn }}
       >
@@ -40,6 +47,11 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/clubs/:id" element={<Club />} />
           <Route path="/nearest" element={<NearestGyms />} />
+           <Route path="/product" element={<Product />} />
+        <Route path="/Clubstore" element={<ClubStore />} />
+        <Route path="/Management" element={<Management />} />
+           <Route path="/Store" element={<Store />} />
+
 
           <Route path="/signin" element={<SignIn />} />
           <Route path="/dashboard" element={<Dashboard />} />

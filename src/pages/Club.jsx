@@ -23,8 +23,14 @@ import { useParams,NavLink,useNavigate } from "react-router-dom";
 import img from "../assets/gym.jpg";
 import img2 from "../assets/sec1.jpg";
 
+
+import img from '../assets/gym.jpg'
+import img2 from '../assets/sec1.jpg'
+import ImageCarousel from '../components/ImageCarousel';
+
 function Club() {
   const [selectedInfo, setSelectedinfo] = useState(1);
+
 
   const { id } = useParams();
   const [club, setClub] = useState(null);
@@ -107,6 +113,7 @@ function Club() {
 
     navigate("/subscribe")
   }
+
   return (
     <>
       {club ? (
@@ -158,7 +165,7 @@ function Club() {
                 {selectedInfo === 3 && <ClubAdress club={club} />}
               </div>
             </div>
-            <div className="photos">
+         /*   <div className="photos">
               <div className="ClubGallery">
                 <img
                   className="slider-image"
@@ -177,7 +184,10 @@ function Club() {
                 </div>
               </div>
             </div>
-          </div>
+          </div>*/
+                 <div className='photos'>
+          <ImageCarousel/>
+</div>
           <div className="Btn">Adhérer maintenant</div>
           <div className="perks">
             {Object.entries(club.perks).map(([key, value]) => {
@@ -190,6 +200,10 @@ function Club() {
               );
             })}
           </div>
+
+
+        </div>
+        
           <div className="plansContainer">
             {club.subsription_planes
               ?.sort((a, b) => a.price - b.price)
@@ -214,6 +228,7 @@ function Club() {
                 );
               })}
           </div>
+
         </div>
       ) : (
         <h1>Loading ...</h1>

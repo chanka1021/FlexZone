@@ -1,0 +1,23 @@
+
+.GymPlans{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+.GymPlans label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .GymPlans select,
+  input,
+  textarea {
+    margin-bottom: 10px;
+    width: 300px;
+  }
+  
+  .GymPlans button {
+    margin-right: 10px;
+  }

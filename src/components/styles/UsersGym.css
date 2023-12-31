@@ -79,15 +79,16 @@ text-transform: uppercase;
     font-weight: bold;
 }
 .UG-devider div a{
- font-style: italic;
  font-weight: normal;
+ color: rgb(27, 27, 27);
 }
 
 .P-downloadapp{
-    color: grey;
+    color: rgb(238, 103, 103);
     font-size: 13px;
 }
 .P-downloadapp a {
     cursor: pointer;
     color: black;
 }
+

@@ -41,7 +41,7 @@
     gap: 10px;
 }
 
-input[type="radio"] {
+.ClubMainContainer input[type="radio"] {
     -webkit-appearance: none;
 }
 

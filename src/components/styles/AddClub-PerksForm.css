@@ -1,0 +1,51 @@
+/* PerksPicker.css */
+
+.perks-picker-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  .perks-picker-container .perks-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .perks-picker-container .perk-item {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .perks-picker-container .perk-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .perks-picker-container .perk-item.selected {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .perks-picker-container .selected-perks {
+    margin-top: 20px;
+  }
+  
+  .perks-picker-container .selected-perks strong {
+   display: block;
+    margin-bottom: 10px;
+  }
+  
+  .perks-picker-container .selected-perks ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .perks-picker-container .selected-perks li {
+    margin-bottom: 5px;
+  }
+  

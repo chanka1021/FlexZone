@@ -7,34 +7,27 @@ import ClubAdress from "../components/ClubAdress";
 import ClubInfos from "../components/ClubInfos";
 import Clubhoraires from "../components/ClubHoraires";
 import { PiSoccerBall, PiPersonSimpleRun, PiBasketball } from "react-icons/pi";
-import { GrUserFemale, GrFormNext, GrFormPrevious } from "react-icons/gr";
+import { GrUserFemale } from "react-icons/gr";
 import { GiBoxingGlove } from "react-icons/gi";
 import { MdDiamond, MdOutlinePool } from "react-icons/md";
 import { SiGoogleclassroom } from "react-icons/si";
 import { VscDebugRerun } from "react-icons/vsc";
 import { FaWifi } from "react-icons/fa";
 import { IoMdRestaurant } from "react-icons/io";
-import {
-  IoCaretBackCircleOutline,
-  IoCaretForwardCircleOutline,
-} from "react-icons/io5";
+
 import axios from "axios";
-import { useParams,NavLink,useNavigate } from "react-router-dom";
-import img from "../assets/gym.jpg";
-import img2 from "../assets/sec1.jpg";
+import { useParams, useNavigate } from "react-router-dom";
 
 
-import img from '../assets/gym.jpg'
-import img2 from '../assets/sec1.jpg'
-import ImageCarousel from '../components/ImageCarousel';
+
+import ImageCarousel from "../components/ImageCarousel";
 
 function Club() {
   const [selectedInfo, setSelectedinfo] = useState(1);
 
-
   const { id } = useParams();
   const [club, setClub] = useState(null);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!id) {
@@ -42,11 +35,11 @@ function Club() {
     }
     try {
       axios.get(`/gym/${id}`).then((response) => {
-        if(response.status===200){
+        if (response.status === 200) {
           setClub(response.data.data);
-      }else{
-        alert('something wrong happends')
-      }
+        } else {
+          alert("something wrong happends");
+        }
         console.log(response);
       });
     } catch (error) {
@@ -107,12 +100,12 @@ function Club() {
     { icon: <MdDiamond className="diamond" />, title: "Premium" },
   ];
 
-  const handleDirectToSubscribe=(id)=>{
-    localStorage.removeItem('clubToSub')
-    localStorage.setItem("clubToSub",JSON.stringify(id))
+  const handleDirectToSubscribe = (id) => {
+    localStorage.removeItem("clubToSub");
+    localStorage.setItem("clubToSub", JSON.stringify(id));
 
-    navigate("/subscribe")
-  }
+    navigate("/subscribe");
+  };
 
   return (
     <>
@@ -165,33 +158,17 @@ function Club() {
                 {selectedInfo === 3 && <ClubAdress club={club} />}
               </div>
             </div>
-         /*   <div className="photos">
-              <div className="ClubGallery">
-                <img
-                  className="slider-image"
-                  src={
-                    "http://localhost:8000/images/gymImgs/" +
-                    club.images[currentImageIndex]
-                  }
-                />
-              </div>
-              <div className="button-container">
-                <div onClick={handlePrevious}>
-                  <IoCaretBackCircleOutline />
-                </div>
-                <div onClick={handleNext}>
-                  <IoCaretForwardCircleOutline />
-                </div>
-              </div>
+
+            <div className="photos">
+              <ImageCarousel />
             </div>
-          </div>*/
-                 <div className='photos'>
-          <ImageCarousel/>
-</div>
+          </div>
           <div className="Btn">Adhérer maintenant</div>
           <div className="perks">
             {Object.entries(club.perks).map(([key, value]) => {
-              const { icon,name } = PERKS.find((perk) => perk.sqlNotation === key);
+              const { icon, name } = PERKS.find(
+                (perk) => perk.sqlNotation === key
+              );
               return (
                 <div className="perkcard" key={key}>
                   <a>{icon}</a>
@@ -201,9 +178,6 @@ function Club() {
             })}
           </div>
 
-
-        </div>
-        
           <div className="plansContainer">
             {club.subsription_planes
               ?.sort((a, b) => a.price - b.price)
@@ -222,13 +196,17 @@ function Club() {
                       <a>1 Semaines essaie gratuit</a>
                       <br />
                       {plan.description}
-                      <div className="PlanBtn" onClick={()=>handleDirectToSubscribe(club.id)}>Commencer</div>
+                      <div
+                        className="PlanBtn"
+                        onClick={() => handleDirectToSubscribe(club.id)}
+                      >
+                        Commencer
+                      </div>
                     </div>
                   </div>
                 );
               })}
           </div>
-
         </div>
       ) : (
         <h1>Loading ...</h1>

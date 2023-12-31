@@ -124,7 +124,7 @@ function Dashboard() {
           if(res.status===202){
             user.picture=res.data.data
             setUser(user)
-            localStorage.setItem('user',user)
+            localStorage.setItem('user',JSON.stringify(user))
           }
         })
       } catch (error) {}

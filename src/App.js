@@ -22,18 +22,19 @@ import { useState } from "react";
 import { UserContext } from "./Util/userContext";
 import AddClub from "./pages/AddClub";
 import SubscribeForm from "./pages/SubscribeForm";
+import Verification from './pages/Verification'; 
 axios.defaults.baseURL = "http://localhost:8000/api";
 
 function App() {
-  const [user, setUser] = useState( JSON.parse(localStorage.getItem("user")) || null);
-  const [token, setToken] = useState(JSON.parse(localStorage.getItem("token"))|| null);
-  const [isLoggedIn, setIsLoggedIn] = useState((user && token)?true:false);
+  const [user, setUser] = useState(
+    JSON.parse(localStorage.getItem("user")) || null
+  );
+  const [token, setToken] = useState(
+    JSON.parse(localStorage.getItem("token")) || null
+  );
+  const [isLoggedIn, setIsLoggedIn] = useState(user && token ? true : false);
   return (
     <>
-
-
-
-
       <UserContext.Provider
         value={{ user, setUser, token, setToken, isLoggedIn, setIsLoggedIn }}
       >
@@ -47,18 +48,17 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/clubs/:id" element={<Club />} />
           <Route path="/nearest" element={<NearestGyms />} />
-           <Route path="/product" element={<Product />} />
-        <Route path="/Clubstore" element={<ClubStore />} />
-        <Route path="/Management" element={<Management />} />
-           <Route path="/Store" element={<Store />} />
-
+          <Route path="/product" element={<Product />} />
+          <Route path="/Clubstore" element={<ClubStore />} />
+          <Route path="/Management" element={<Management />} />
+          <Route path="/verification" element={<Verification />} />
+          <Route path="/Store" element={<Store />} />
 
           <Route path="/signin" element={<SignIn />} />
           <Route path="/dashboard" element={<Dashboard />} />
 
-          <Route path="/dashboard/add-your-club" element={<AddClub/>} />
-          <Route path="/subscribe" element={<SubscribeForm/>} />
-          
+          <Route path="/dashboard/add-your-club" element={<AddClub />} />
+          <Route path="/subscribe" element={<SubscribeForm />} />
         </Routes>
       </UserContext.Provider>
       <Footer />

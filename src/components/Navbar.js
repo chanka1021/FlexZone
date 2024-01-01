@@ -67,7 +67,7 @@ export const Navbar = () => {
           <NavLink to="/nearest">Explorer</NavLink>
         </li>
         <li>
-          <NavLink to="/store">Botique</NavLink>
+          <NavLink to="/store">Boutique</NavLink>
         </li>
         <li>
           <NavLink to="/contact">Contact</NavLink>

@@ -112,11 +112,16 @@ function UsersGym() {
           // </div>
         )}
 
-        {subs && subs.length === 0 && <div>Subscribe to a gym</div>}
+        {subs && subs.length === 0 && <div style={{display:"flex", alignItems:"center",justifyContent:"center",height:"100%"}}>
+
+          <NavLink to={"/clubs"} style={{color:"white"}}>
+            <h1>Subscribe to a gym</h1>
+          </NavLink>
+          </div>}
       </>
     );
   } else {
-    return <h1>Loading ...</h1>;
+    return <div style={{display:"flex", alignItems:"center",justifyContent:"center",height:"100%"}}><h1>Loading ...</h1></div>;
   }
 }
 

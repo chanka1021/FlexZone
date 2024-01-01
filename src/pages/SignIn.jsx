@@ -44,6 +44,9 @@ function SignIn() {
             localStorage.setItem('userToVerify',JSON.stringify(err.response.data.data))
             window.location.href = "/verification";
             return
+          }else if(err.response.status===401){
+            alert("Invalid credentials , please try again later , or login if you do not have an account");
+            return
           }
           alert("something wrong happends , please try again later");
         });

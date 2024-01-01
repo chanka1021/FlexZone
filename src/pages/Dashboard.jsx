@@ -258,6 +258,8 @@ function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedComponent, setSelectedComponent] = useState(null);
   const [ready, setReady] = useState(false);
+  const [profilePictureChanged, setProfilePictureChanged] = useState(false); // New state
+
   
   const navigate = useNavigate();
   // shared state
@@ -279,6 +281,7 @@ function Dashboard() {
             setUser(res.data.data);
             localStorage.removeItem('user');
             localStorage.setItem("user", JSON.stringify(res.data.data));
+            setProfilePictureChanged(false);
             setReady(true);
           } else {
             return navigate("/signin");
@@ -290,7 +293,7 @@ function Dashboard() {
     } catch (error) {
       console.log(error);
     }
-  }, [token, navigate, setUser]);
+  }, [token, navigate, setUser,profilePictureChanged]);
 
   const handleItemClick = (item) => {
     const selectedItemObj =
@@ -341,9 +344,11 @@ function Dashboard() {
           },
         }).then(res => {
           if (res.status === 202) {
+            console.log(res.data.data)
             user.picture = res.data.data;
             setUser(user);
             localStorage.setItem('user', JSON.stringify(user));
+            setProfilePictureChanged(true); // Trigger a re-render
           }
         });
       } catch (error) {

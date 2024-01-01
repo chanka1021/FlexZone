@@ -160,7 +160,7 @@ function Club() {
             </div>
 
             <div className="photos">
-              <ImageCarousel />
+              <ImageCarousel  images={club.images} />
             </div>
           </div>
           <div className="Btn">Adhérer maintenant</div>

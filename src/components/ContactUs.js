@@ -1,10 +1,56 @@
-import React from 'react'
+
+import React, { useState } from "react";
 import './styles/Contactus.css'
 import { BsMailbox, BsTelephoneFill } from "react-icons/bs";
 import { MdEmail, MdLocationOn } from "react-icons/md";
 import img from "../assets/banner.png"
+import axios from "axios"
 
 function ContactUs() {
+
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    });
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // You can perform form submission logic here
+        console.log(formData);
+        // Reset form fields after submission if needed
+        setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: '',
+        });
+        try {
+             axios.post('/mail', formData)
+            .then(response => {
+                console.log('Post request successful:', response.FormData);
+                // Handle the response data or success message here
+            })
+            .catch(error => {
+                console.error('Error making post request:', error);
+                console.error('Error response from server:', error.response);
+    });
+        } catch (error) {
+            
+        }
+
+       
+    }
     return (
         <div className='Contactus'>
             <div className='ContactForm'>
@@ -22,13 +68,35 @@ function ContactUs() {
                 <div className='Form'>
                     <p className='getin'>Envoie-nous un message</p>
                     <p className='bv'>Votre adresse email ne sera pas publiée *</p>
-                    <div className='Form'>
-                        <input placeholder='nom complete' />
-                        <input placeholder='adresse email' />
-                        <input placeholder='subjet' />
-                        <input placeholder='message' />
-                        <div className='sendbtn'>Envoyer maintenant</div>
-                    </div>
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            name='name'
+                            placeholder='name complete'
+                            value={formData.name}
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            name='email'
+                            placeholder='adresse email'
+                            value={formData.email}
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            name='subject'
+                            placeholder='subjet'
+                            value={formData.subject}
+                            onChange={handleInputChange}
+                        />
+                        <input
+                            name='message'
+                            placeholder='message'
+                            value={formData.message}
+                            onChange={handleInputChange}
+                        />
+                        <button type='submit' >
+                            Envoyer maintenant
+                        </button>
+                    </form>
                 </div>
 
             </div>

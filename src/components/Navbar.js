@@ -89,7 +89,7 @@ export const Navbar = () => {
           )}
         </li>
         <li>
-          {isLoggedIn && user && !user.is_gym_owner && !user.has_gym && (
+          {isLoggedIn && user && !user.is_admin && !user.is_gym_owner && !user.has_gym && (
             <div onClick={handleBecomeAnOwner} className="become-a-gym-owner">
               <NavLink>Devenir Propriétaire</NavLink>
             </div>

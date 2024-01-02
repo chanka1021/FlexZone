@@ -6,7 +6,7 @@ import axios from "axios";
 import { NavLink } from "react-router-dom";
 import moment from "moment";
 function UsersGym() {
-  const { token, user, setUser } = useContext(UserContext);
+  const { token } = useContext(UserContext);
   const [subs, setSubs] = useState([]);
   const [ready, setReady] = useState(false);
 

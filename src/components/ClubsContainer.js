@@ -8,6 +8,7 @@ import axios from 'axios'
 import { useEffect,useState } from 'react';
 function ClubsContainer() {
      const [gyms,setGyms] = useState([]);
+
     useEffect(()=>{
         const FetchData = () => {
             axios.get('/gym').then((response) => {
@@ -20,6 +21,7 @@ function ClubsContainer() {
           
        
     },[])
+    
     const cardData = [
         { id: 1, title: 'Gym 1', content: 'Content for Gym 1', img: gym },
         { id: 2, title: 'Gym 2', content: 'Content for Gym 2', img: gym },

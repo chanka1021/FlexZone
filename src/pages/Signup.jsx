@@ -38,13 +38,18 @@ function SignUp() {
         if (data.status === 201) {
           alert("Compte crée avec réussite");
           navigate("/signin");
-        } else {
+        }
+         else {
           alert("somhting wrong happends");
         }
       } else {
         console.log(response.messages);
       }
     } catch (error) {
+
+       if(error.response.status > 200){
+        alert(JSON.stringify(error.response.data.message))
+    }
       console.log(error.response);
       //alert(error.response.data.message)
     }

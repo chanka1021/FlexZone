@@ -1,32 +1,54 @@
-import React from 'react'
-import '../components/styles/Product.css'
-import img from '../assets/gym.jpg'
-function Product() {
-    return (
-        <div className='ProductContainer'>
-            <div className='img-infos'>
-                <img src={img} />
-                <div className='productInfos' >
-                    <h2>MuscleTech Cell-Tech</h2>
-                    <p>
-                        A MuscleTech Product
-                        Hardcore Creatine Formula Designed to Help Increase Mass*
-                        10g creatine per 2 scoop serving
-                        Research backed + carb muscle builder
-                        200mg ALA to support energy levels
-                        5g amino + BCAA matrix
-                    </p>
-                </div>
-            </div>
+import React, { useEffect, useState } from "react";
+import "../components/styles/Product.css";
+import img from "../assets/gym.jpg";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-            <div className='product-desc'>
-                On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains
-                </div>
-                <div className='BuyThis'>
-                Acheter maintenant
-                </div>
+function Product() {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    if (!id) {
+      return;
+    }
+    try {
+      axios.get(`/product/${id}`).then((response) => {
+        if (response.status === 200) {
+          setProduct(response.data.data);
+        } else {
+          alert("Something went wrong");
+        }
+        console.log(response);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, [id]);
+
+  console.log(product);
+
+  // Check if product is null before trying to access its properties
+  if (!product) {
+    return <div>Loading...</div>; // You can show a loading indicator or handle this case in another way
+  }
+
+  return (
+    <div className="ProductContainer">
+      <div className="img-infos">
+        <img src={img} alt={product.name} />
+        <div className="productInfos">
+          <h2>{product.name}</h2>
+          <p>{product.type}</p>
+          <p>from: {product.gym_name}</p>
+          <p>{parseInt(product.price)} MAD</p>
         </div>
-    )
+      </div>
+
+      <div className="product-desc">{product.description}</div>
+      <div className="BuyThis">Acheter maintenant</div>
+    </div>
+  );
 }
 
-export default Product
+export default Product;

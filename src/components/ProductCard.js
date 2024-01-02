@@ -1,14 +1,19 @@
 import React from 'react'
-import img from '../assets/gym.jpg'
-function ProductCard() {
+import { Mylink } from "../exports";
+
+
+function ProductCard(props) {
+  console.log(props,"dddd")
   return (
+   <Mylink to={'/product/'+props.Id}>
     <div className='PCardContainer'>
-        <img src={img} />
+        <img src={props.img} />
         <div className='P-infos'>
-            <div className='P-name'>MuscleTech Cell-Tech</div>
-            <a className='P-price'>1300 MAD</a>
+            <div className='P-name'>{props.name}</div>
+            <a className='P-price'>{props.price}</a>
         </div>
     </div>
+   </Mylink>
   )
 }
 

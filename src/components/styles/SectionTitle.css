@@ -1,5 +1,4 @@
 .SectionContainer {
-  border: 2px solid black;
   width: 90%;
   height: 400px;
   margin: auto;
@@ -10,6 +9,9 @@
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
+  border-radius: 31px;
+  box-shadow:  23px 23px 46px #6e6e6e,
+  -23px -23px 46px #ffffff;
 }
 
 .SectionTitle {
@@ -106,6 +108,9 @@
     .HomeSectionTitle {
         height: 400px;
     }
+    .SectionContainer {
+      height: 300px;
+  }
     .SectionTitle {
         font-size: 50px;
     }

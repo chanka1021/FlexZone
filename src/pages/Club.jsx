@@ -14,12 +14,8 @@ import { SiGoogleclassroom } from "react-icons/si";
 import { VscDebugRerun } from "react-icons/vsc";
 import { FaWifi } from "react-icons/fa";
 import { IoMdRestaurant } from "react-icons/io";
-
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-
-
-
 import ImageCarousel from "../components/ImageCarousel";
 
 function Club() {

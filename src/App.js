@@ -48,15 +48,13 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/clubs/:id" element={<Club />} />
           <Route path="/nearest" element={<NearestGyms />} />
-          <Route path="/product" element={<Product />} />
-          <Route path="/Clubstore" element={<ClubStore />} />
+          <Route path="/product/:id" element={<Product />} />
+          <Route path="/Clubstore/:id" element={<ClubStore />} />
           <Route path="/Management" element={<Management />} />
           <Route path="/verification" element={<Verification />} />
           <Route path="/Store" element={<Store />} />
-
           <Route path="/signin" element={<SignIn />} />
           <Route path="/dashboard" element={<Dashboard />} />
-
           <Route path="/dashboard/add-your-club" element={<AddClub />} />
           <Route path="/subscribe" element={<SubscribeForm />} />
         </Routes>

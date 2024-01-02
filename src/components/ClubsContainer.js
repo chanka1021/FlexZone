@@ -6,6 +6,7 @@ import GlobaleTitle from "./GlobaleTitle";
 import img from "../assets/sponsored.png"
 import axios from 'axios'
 import { useEffect,useState } from 'react';
+
 function ClubsContainer() {
      const [gyms,setGyms] = useState([]);
 
@@ -22,15 +23,6 @@ function ClubsContainer() {
        
     },[])
     
-    const cardData = [
-        { id: 1, title: 'Gym 1', content: 'Content for Gym 1', img: gym },
-        { id: 2, title: 'Gym 2', content: 'Content for Gym 2', img: gym },
-        { id: 3, title: 'Gym 3', content: 'Content for Gym 3', img: gym },
-        { id: 4, title: 'Gym 4', content: 'Content for Gym 1', img: gym },
-        { id: 5, title: 'Gym 5', content: 'Content for Gym 2', img: gym },
-        { id: 6, title: 'Gym 6', content: 'Content for Gym 3', img: gym },
-    ];
-
     return (
         <>
             <GlobaleTitle t1="Nos" t2="Partenaires" center={true} />

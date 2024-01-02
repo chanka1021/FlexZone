@@ -9,7 +9,7 @@ function SubscribeForm() {
   const [club, setClub] = useState(null);
   const [planeId, setPlaneId] = useState(null);
   const [duration, setDuration] = useState(1);
-  const clubId  = JSON.parse(localStorage.getItem('clubToSub'));
+  const clubId = JSON.parse(localStorage.getItem("clubToSub"));
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -76,31 +76,35 @@ function SubscribeForm() {
   const handleSubscribe = (event) => {
     event.preventDefault();
     if (planeId === null) {
-      alert('select a plane')
+      alert("select a plane");
       return;
     }
-   
+
     try {
       axios
-        .post("/subscription/subscribe", {
-          planeId,
-          duration,
-        },{
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        .post(
+          "/subscription/subscribe",
+          {
+            planeId,
+            duration,
+          },
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
         .then((res) => {
           if (res.status === 201) {
             alert("you subscribed succesfully");
-            localStorage.removeItem("clubToSub")
+            localStorage.removeItem("clubToSub");
             return navigate("/dashboard");
-          } else{
-            alert('somthing wrong happend ,please try again')
+          } else {
+            alert("somthing wrong happend ,please try again");
           }
         })
-        .catch(err=>{
-          console.log(err)
-          if(err.response.status===409){
-            alert("You already have a subscription to this club");
+        .catch((err) => {
+          console.log(err);
+          if (err.response.status === 409) {
+            alert("You already have a subscription to this club and this plane try changing the plane");
             return navigate("/dashboard");
           }
         });
@@ -150,7 +154,15 @@ function SubscribeForm() {
           </div>
           <div className="form-group">
             <label>Prix de Plan d'Abonnement:</label>
-            <span>100 MAD/Mois</span>
+            {club.subsription_planes && planeId && (
+              <span>
+                {
+                  club.subsription_planes.find((item) => item.id === planeId)
+                    .price
+                }{" "}
+                MAD/Mois
+              </span>
+            )}
           </div>
           <div className="form-group">
             <label>Durée - en mois:</label>
@@ -184,7 +196,7 @@ function SubscribeForm() {
       </div>
     );
   } else {
-    return <h1>Loading ....</h1>;
+    return <div style={{display:"flex", alignItems:"center",justifyContent:"center",height:"100%"}}><h1>Loading ...</h1></div>;;
   }
 }
 

@@ -2,13 +2,13 @@
   display: flex;
 }
 
-.Dashboard ul {
+.Dashboard .DBnavbar ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-.Dashboard li {
-  height: 10vh;
+.Dashboard .DBnavbar li {
+  /* height: 10vh; */
   width: 100%;
   display: flex;
   align-items: center;
@@ -19,16 +19,16 @@
   transition: 0.3s ease-in-out;
   cursor: pointer;
 }
-.Dashboard li:hover {
+.Dashboard .DBnavbar li:hover {
   background-color: #1c1a50;
 }
 
-.Dashboard li a {
+.Dashboard .DBnavbar li a {
   font-size: 28px;
   margin-top: 10px;
 }
 
-.Dashboard li.selected {
+.Dashboard .DBnavbar li.selected {
   background-color: #1c1a50;
 }
 

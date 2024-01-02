@@ -12,8 +12,8 @@
   }
   
   .GymPlans select,
-  input,
-  textarea {
+  .GymPlans input,
+  .GymPlans textarea {
     margin-bottom: 10px;
     width: 300px;
   }

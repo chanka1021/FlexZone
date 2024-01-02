@@ -7,8 +7,8 @@ import { UserContext } from "../Util/userContext";
 function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { token, setToken,setIsLoggedIn } = useContext(UserContext);
-  const navigate = useNavigate()
+  const { token, setToken, setIsLoggedIn } = useContext(UserContext);
+  const navigate = useNavigate();
   const handleSignIn = async (e) => {
     e.preventDefault();
     // Add your sign-in logic here, e.g., make an API call to authenticate the user
@@ -16,30 +16,46 @@ function SignIn() {
       axios
         .post("/login", { email, password })
         .then((res) => {
-          if (res.status === 200) {
-            //console.log(200,res)
-            setToken(res.data.data);
-            setIsLoggedIn(true)
-            localStorage.setItem('token',JSON.stringify(res.data.data))
-          //  alert(res.data.message);
-          if(localStorage.getItem('clubToSub')){
-            return navigate("/subscribe")
+          console.log(res)
+          switch (res.status) {
+            case 200:
+              setToken(res.data.data);
+              setIsLoggedIn(true);
+              localStorage.setItem("token", JSON.stringify(res.data.data));
+              alert(res.data.message);
+              if (localStorage.getItem("clubToSub")) {
+                return navigate("/subscribe");
+              }
+              return navigate("/dashboard");
+
+            default:
+              alert("something wrong happends");
+              break;
           }
-            return navigate("/dashboard")
-          } else {
-            alert("something wrong happends");
-          }
+          
         })
         .catch((err) => {
+          if(err.response.status===302){
+            alert('verify your email')
+            localStorage.removeItem('isVerified')
+            localStorage.removeItem('userToVerify')
+            localStorage.setItem('isVerified','false')
+            //console.log(err)
+            localStorage.setItem('userToVerify',JSON.stringify(err.response.data.data))
+            window.location.href = "/verification";
+            return
+          }else if(err.response.status===401){
+            alert("Invalid credentials , please try again later , or login if you do not have an account");
+            return
+          }
           alert("something wrong happends , please try again later");
         });
 
-      // console.log(data.message)
+      
     } catch (error) {
-      //console.log(error)
+     
     }
 
-    // console.log('Signing in with:', email, password);
   };
 
   return (

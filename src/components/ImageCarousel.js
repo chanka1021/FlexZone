@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { IoCaretBackCircleOutline, IoCaretForwardCircleOutline } from "react-icons/io5";
-import img from '../assets/gym.jpg'
-import img2 from '../assets/sec1.jpg'
 import { useState } from 'react';
 
-function ImageCarousel(props) {
-    const images = [img, img2, img, img2]
+function ImageCarousel({images}) {
+   
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -48,7 +46,7 @@ function ImageCarousel(props) {
 
     return (
         <Gallery>
-            <ImgContainer src={images[currentImageIndex]} />
+            <ImgContainer src={'http://localhost:8000/images/gymImgs/'+images[currentImageIndex]} />
             <BtnsContainer>
                 <Btn onClick={handlePrevious}><IoCaretBackCircleOutline /></Btn>
                 <Btn onClick={handleNext} ><IoCaretForwardCircleOutline /></Btn>

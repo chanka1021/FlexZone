@@ -41,7 +41,7 @@
     gap: 10px;
 }
 
-.ClubMainContainer input[type="radio"] {
+.ClubMainContainer  .Clubinfos input[type="radio"] {
     -webkit-appearance: none;
 }
 

@@ -1,0 +1,11 @@
+.VerificationForm-conatiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.VerificationForm-conatiner .enter-verify-code{
+    display: flex;
+    justify-content: center;
+}

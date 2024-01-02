@@ -92,3 +92,67 @@ text-transform: uppercase;
     color: black;
 }
 
+
+
+/* UsersGym.css */
+
+ .sub-list-container  {
+    list-style: none;
+    padding: 15px !important;
+    margin: 0;
+  }
+  
+  .sub-list-container li {
+   
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+  }
+
+ 
+  
+  .sub-list-container li span {
+    margin-right: 10px;
+    
+    
+  }
+  .sub-list-container .payed{
+    background-color: rgb(115, 218, 115)
+  }
+  .sub-list-container .unpayed{
+    background-color: rgb(234, 72, 93);
+  }
+  /* Add hover effect */
+  .sub-list-container  li:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Style the links */
+  .sub-list-container li a {
+    color: #3498db;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: medium;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .sub-list-container li {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .sub-list-container li  span {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  

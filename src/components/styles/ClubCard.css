@@ -1,21 +1,16 @@
-.ClubCardContainer{
-    height: 460px;
-    width: 330px;
-font-family: 'Inter', sans-serif;
+.ClubCardContainer {
 
 }
 
 .ClubCardContainer img {
-    height: 70%;
-    width: 100%;
+
 }
 
-.ClubTitle{
-    color: #1C2129;
-    font-weight: 900;
+.ClubTitle {
+
 }
-.suite{
-    color : #524FF5;
-    cursor: pointer;
-    font-weight: bold;
+.suite {
+  color: #524ff5;
+  cursor: pointer;
+  font-weight: bold;
 }

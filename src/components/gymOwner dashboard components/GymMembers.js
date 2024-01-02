@@ -45,9 +45,7 @@ function GymMembers() {
                         className="search-input"
                     />
                 </div>
-
             </span>
-
             <table className="members-table">
                 <thead>
                     <tr>

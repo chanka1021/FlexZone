@@ -15,6 +15,7 @@ function SignUp() {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
   const handleSignUp = async (e) => {
+
     e.preventDefault();
 
     try {
@@ -104,7 +105,7 @@ function SignUp() {
           />
         </label>
         <br />
-        <button type="submit">S'inscrire</button>
+        <button type="submit" onClick={handleSignUp}>S'inscrire</button>
       </form>
       <p>
         Vous avez déjà un compte !{" "}

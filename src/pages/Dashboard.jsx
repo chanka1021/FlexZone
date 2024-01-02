@@ -21,6 +21,11 @@ import GymInfo from '../components/gymOwner dashboard components/GymInfo';
 import SubsHistory from '../components/gymOwner dashboard components/SubsHistory';
 import SoldProducts from '../components/gymOwner dashboard components/SoldProducts';
 import Purchases from '../components/userdashboard components/Purchases';
+import Subscirbers from "../components/Admin dashboard components/Subscirbers";
+import AdminOverview from "../components/Admin dashboard components/AdminOverview";
+import { RiUserSettingsLine } from "react-icons/ri";
+import UserSettings from "../components/UserSettings";
+
 
 function Dashboard() {
   const [selectedItem, setSelectedItem] = useState(null);
@@ -63,10 +68,13 @@ function Dashboard() {
     }
   }, [token, navigate, setUser,profilePictureChanged]);
 
+
+
   const handleItemClick = (item) => {
     const selectedItemObj =
       UserNavItems.find((navItem) => navItem.id === item) ||
-      GymOwnerNavItems.find((navItem) => navItem.id === item);
+      GymOwnerNavItems.find((navItem) => navItem.id === item) ||
+      AdminNavItems.find((navItem) => navItem.id === item) ;
 
     setSelectedItem(selectedItemObj.id);
     setSelectedComponent(selectedItemObj.component || null);
@@ -76,7 +84,10 @@ function Dashboard() {
     { id: 'Aperçu', icon: <MdOutlineDashboard />, text: 'Aperçu', component: <UserOverView /> },
     { id: 'club', icon: <GiGymBag />, text: 'Club', component: <UsersGym /> },
     { id: 'achats', icon: <MdOutlineProductionQuantityLimits />, text: 'Achats', component: <Purchases /> },
+    { id: 'Parametre', icon: <RiUserSettingsLine />, text: 'Parametre', component: <UserSettings /> },
+
   ];
+
 
   const GymOwnerNavItems = [
     { id: 'dashboard', icon: <MdOutlineDashboard />, text: 'dashboard', component: <Gymoverview /> },
@@ -86,9 +97,21 @@ function Dashboard() {
     { id: 'Historique des abonnements', icon: <MdOutlineProductionQuantityLimits />, text: 'Historique des abonnements ', component: <SubsHistory /> },
     { id: 'Produits Vendu', icon: <TbPackageExport />, text: 'Produits Vendu', component: <SoldProducts /> },
     { id: 'Gym info', icon: <BsInfoSquare />, text: 'Gym info', component: <GymInfo /> },
+    { id: 'Parametre', icon: <RiUserSettingsLine />, text: 'Parametre', component: <UserSettings /> },
+
   ];
 
-  const NavItems = user && user.is_gym_owner ? GymOwnerNavItems : UserNavItems;
+
+  const AdminNavItems = [
+    { id: 'Admindashboard', icon: <MdOutlineDashboard />, text: 'dashboard', component: <AdminOverview /> },
+    { id: 'Abonnes', icon: <FaUsers />, text: 'Abonnés', component: <Subscirbers /> },
+    { id: 'Parametre', icon: <RiUserSettingsLine />, text: 'Parametre', component: <UserSettings /> },
+
+  ];
+
+  
+  const NavItems = user && user.is_gym_owner ? GymOwnerNavItems : (user && user.is_admin ? AdminNavItems : UserNavItems);
+  
 
   const handleChangeProfilePicture = () => {
     if (fileInputRef.current) {

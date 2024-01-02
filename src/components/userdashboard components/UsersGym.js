@@ -25,7 +25,7 @@ function UsersGym() {
       .catch((err) => {
         console.log(err);
       });
-  }, [token]);
+  }, [token,ready]);
 
 
 
@@ -34,6 +34,44 @@ function UsersGym() {
     const endDate = startDate.clone().add(duration, 'months');
     return endDate.format('YYYY-MM-DD');
   };
+
+  const handlePaySub =(subid)=>{
+      if(!subid) return;
+      if(!window.confirm("Paying your subscription "+subid+" ...")) return;
+
+      axios.post('/subscription/pay/'+subid,{},{
+        headers: { Authorization: `Bearer ${token}` },
+      }).then(response=>{
+
+        if(response.status===200){
+          alert("subscription payed successfully")
+          setReady(false);
+        }
+
+      }).catch(err=>{
+        alert(JSON.stringify(err.response.data.message))
+      })
+     
+  }
+
+  const handleCancelSub =(subid)=>{
+    if(!subid) return;
+    if(!window.confirm("Canceling your subscription "+subid+" ...")) return;
+
+    axios.post('/subscription/cancel/'+subid,{},{
+      headers: { Authorization: `Bearer ${token}` },
+    }).then(response=>{
+
+      if(response.status===200){
+        alert("subscription canceld successfully")
+        setReady(false);
+      }
+
+    }).catch(err=>{
+      alert(JSON.stringify(err.response.data.message))
+    })
+   
+}
 
   if (ready) {
     return (
@@ -58,7 +96,7 @@ function UsersGym() {
                 <div className="action-sub-container">
                   <span>
                     {sub.payed === 0 ? (
-                      <NavLink> Pay </NavLink>
+                      <b onClick={()=>handlePaySub(sub.id)} style={{color:"rgb(115, 218, 115)" , cursor:"pointer"}}> Pay </b>
                     ) : (
                       <NavLink> Re-New </NavLink>
                     )}
@@ -66,7 +104,7 @@ function UsersGym() {
 
                   {sub.payed === 1 && (
                     <span>
-                      <NavLink>Cancel</NavLink>{" "}
+                     <b onClick={()=>handleCancelSub(sub.id)} style={{color:"rgb(255, 72, 93)" , cursor:"pointer"}}> Cancel </b>
                     </span>
                   )}
 

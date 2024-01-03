@@ -10,7 +10,7 @@ function Subscirbers() {
   const [searchNom, setSearchNom] = useState("");
   const [filtrerGyms,setFiltrerGyms] = useState([]);
   useEffect(() => {
-    if (searchNom == "") return;
+    if (searchNom == "") setFiltrerGyms(gyms);
     setFiltrerGyms(gyms.filter((gym) =>
       gym.name.toLowerCase().includes(searchNom.toLowerCase()))
     );

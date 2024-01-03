@@ -44,20 +44,22 @@ function Verification() {
     <>
       {!verified && (
         <div className="VerificationForm-conatiner">
-          <h2>Verification</h2>
-          <form onSubmit={handleVerification}>
+          <h2>Verification Email </h2><span> refresh page to re-send the code </span>
+          <form onSubmit={handleVerification} style={{display:"flex" ,flexDirection:"column" , alignItems:"center" ,justifyContent:"space-evenly", height:"200px"}}>
             <label>
-              Enter Verification Code:
+              Enter Verification Code
+              <br/>
               <input
                 type="text"
                 value={Code}
                 onChange={(e) => setCode(e.target.value)}
                 required
+                style={{marginTop:"20px"}}
               />
             </label>
-            <div className="enter-verify-code">
+            <div className="enter-verify-code" style={{}}>
               {" "}
-              <button type="submit">Verify</button>
+              <button type="submit" style={{backgroundColor:"rgb(115, 218, 115)" , padding:"5px" , borderRadius:"3px"}}>Verify</button>
             </div>
           </form>
         </div>

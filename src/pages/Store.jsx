@@ -4,6 +4,7 @@ import img from "../assets/banner3.jpg";
 import "../components/styles/Store.css";
 import ClubProducts from "../components/ClubProducts";
 import axios from "axios";
+import styled from "styled-components";
 
 function Store() {
   const [products, setProducts] = useState([]);
@@ -12,7 +13,6 @@ function Store() {
     const fetchData = () => {
       axios.get("/product").then((response) => {
         setProducts(response.data.data);
-        console.log(response.data);
       });
     };
 
@@ -21,7 +21,6 @@ function Store() {
 
   // Organize products by gym
   const productsByGym = products.reduce((acc, product) => {
-   
     const gymId = product.gym_id;
    // const Gym_name = product.gym_name;
     if (!acc[gymId]) {
@@ -31,17 +30,26 @@ function Store() {
 
     return acc;
   }, {});
-  console.log(productsByGym)
+
+const Container = styled.div`
+    width: 70vw;
+    padding: 0 150px;
+    height: fit-content;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+`
 
   return (
     <>
       <SectionTitle title="E-botique" img={img} />
-      <div className="StoreContainer">
+      <Container>
         {Object.entries(productsByGym).map(([gymId, gymProducts]) => (
           <ClubProducts key={gymId} ClubId={gymId} gymProducts={gymProducts}  />
           
         ))}
-      </div>
+      </Container>
     </>
   );
 }

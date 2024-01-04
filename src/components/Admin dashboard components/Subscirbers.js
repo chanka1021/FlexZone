@@ -43,7 +43,7 @@ function Subscirbers() {
       })
       .then((response) => {
         if (response.status === 200) {
-          alert("subscription canceld successfully");
+          alert("gym deleted successfully");
           setReady(false);
         }
       })

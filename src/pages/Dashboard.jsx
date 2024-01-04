@@ -104,7 +104,7 @@ function Dashboard() {
 
   const AdminNavItems = [
     { id: 'Admindashboard', icon: <MdOutlineDashboard />, text: 'dashboard', component: <AdminOverview /> },
-    { id: 'Abonnes', icon: <FaUsers />, text: 'Abonnés', component: <Subscirbers /> },
+    { id: 'Clubs', icon: <FaUsers />, text: 'Clubs', component: <Subscirbers /> },
     { id: 'Parametre', icon: <RiUserSettingsLine />, text: 'Parametre', component: <UserSettings /> },
 
   ];
@@ -205,16 +205,9 @@ function Dashboard() {
           </div>
           <div className="UserPersonalInfos">
             <p>détails personnels</p>
-            <span>
-              Num de tele : <a>{user.phone_number}</a>
-            </span>
             <hr />
-            <span>
-              Address : <a>{user.address}</a>
-            </span>
-            <hr />
-            <span>
-              Email : <a>{user.email}</a>
+            <span style={{display:"block"}}>
+              Email : <a style={{display:"block" ,fontSize:"small"}}>{user.email}</a>
             </span>
           </div>
         </div>

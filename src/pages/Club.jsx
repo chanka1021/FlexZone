@@ -174,7 +174,7 @@ function Club() {
             })}
           </div>
 
-          <div className="plansContainer">
+          <div className="plansContainer" style={{marginTop:"30px"}}>
             {club.subsription_planes
               ?.sort((a, b) => a.price - b.price)
               .map((plan, index) => {
@@ -191,7 +191,7 @@ function Club() {
                     <div className="PlanDesc">
                       <a>1 Semaines essaie gratuit</a>
                       <br />
-                      {plan.description}
+                      {plan.description.slice(0,100)+" ..."}
                       <div
                         className="PlanBtn"
                         onClick={() => handleDirectToSubscribe(club.id)}

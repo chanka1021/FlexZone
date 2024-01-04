@@ -3,6 +3,8 @@ import axios from "axios";
 import { UserContext } from "../../Util/userContext";
 import "../styles/GymMembers.css";
 
+import moment from "moment";
+
 function GymMembers() {
   const [ready, setReady] = useState(false);
   const [subs, setSubs] = useState([]);
@@ -36,8 +38,8 @@ function GymMembers() {
   const [searchNom, setSearchNom] = useState("");
   const [filteredMembers, setFilteredMembers] = useState([]);
   useEffect(() => {
-    if (searchNom == "") setFilteredMembers(subs);
-    setFilteredMembers(subs.filter((sub) => sub.user_id === searchNom));
+    if (searchNom =="") setFilteredMembers(subs);
+    else setFilteredMembers(subs.filter((sub) => sub.user_id === +searchNom));
   }, [searchNom, setSearchNom]);
 
   useEffect(() => {
@@ -60,6 +62,12 @@ function GymMembers() {
         }
       });
   }, [ready,token]);
+
+  const calculateEndDate = (createdAt, duration) => {
+    const startDate = moment(createdAt);
+    const endDate = startDate.clone().add(duration, 'months');
+    return endDate.format('YYYY-MM-DD');
+  };
 
   if( subs && subs.length===0){
     return (<div
@@ -93,7 +101,7 @@ function GymMembers() {
             rechereche :{" "}
             <input
               type="text"
-              placeholder="Rechercher par nom"
+              placeholder="Rechercher par id"
               value={searchNom}
               onChange={(e) => setSearchNom(e.target.value)}
               className="search-input"
@@ -103,23 +111,38 @@ function GymMembers() {
         {subs && subs.length > 0 && (
           <table className="members-table">
             <thead>
-              <tr>
-                <th>Image</th>
-                <th>Nom</th>
-                <th>Active Plan</th>
-                <th>Reste</th>
+              <tr className="member-row">
+                <th>user id</th>
+                <th>Plane id</th>
+                <th>Payed</th>
+                <th>Duration</th>
+                <th>End Date</th>
               </tr>
             </thead>
             <tbody>
-              {subs.map((member, index) => (
-                        <tr key={index} className="member-row">
-                            {/* <td><img src={member.image} alt={`${member.name}'s picture`} className="member-image" /></td>
-                            <td>{member.name}</td>
-                            <td>{member.activePlan}</td>
-                            <td>{member.leftDuration}</td> */}
-                            ok
-                        </tr>
-                    ))}
+            {filteredMembers.map((sub) => (
+              <tr
+              className="member-row"
+                key={sub.id}
+                style={sub.payed === 1 ? {color:"rgb(115, 218, 115)"} : {color:"rgb(255, 72, 93)"}}
+              >
+              
+                  <td>{sub.user_id}</td>
+                 <td>{sub.sub_plan_id}</td>
+                 <td>{sub.payed==1?"Payed":"Not Payed"}</td>
+                 <td>{sub.duration} {sub.duration==1?" Month":" Months"}</td>
+                   <td>  {sub.payed === 1 ?(
+                
+                     <p>End Date : {calculateEndDate(sub.created_at,sub.duration)}</p> 
+                    
+                  ):" None "}</td>
+           
+                
+               
+              </tr>
+            ))}
+            
+          
             </tbody>
           </table>
         )}
